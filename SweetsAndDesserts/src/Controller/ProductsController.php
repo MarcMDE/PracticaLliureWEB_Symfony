@@ -10,9 +10,10 @@ namespace App\Controller;
 
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class ProductsController
+class ProductsController extends AbstractController
 {
     /**
      * @Route("/products")
@@ -24,9 +25,12 @@ class ProductsController
 
     /**
      * @Route("/products/{slug}")
+     * @
      */
     public function detail()
     {
-        return new Response("OMG a detail pg");
+        //return new Response("OMG a detail pg" + $id);
+        return $this->render('products/index.html.twig',
+            ['title' => "Sweets", 'producte' => "pastissets"]);
     }
 }
