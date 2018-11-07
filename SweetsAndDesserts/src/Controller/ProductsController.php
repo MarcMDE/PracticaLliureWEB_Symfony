@@ -20,11 +20,11 @@ class ProductsController extends AbstractController
      */
     public function index()
     {
-        return new Response("OMG My first page");
+        return $this->render('base.html.twig');
     }
 
     /**
-     * @Route("/products/{slug}")
+     * @Route("/products/detail")
      * @
      */
     public function detail()

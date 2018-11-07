@@ -205,6 +205,6 @@ class __TwigTemplate_2578bcbf89e2d711e8ceb709ea2563c8d6aab7f8f9480f938f3dbbd2126
         </div>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/exception.html.twig", "C:\\Users\\MarcMDE\\Desktop\\PracticaWeb\\SweetsAndDesserts\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\exception.html.twig");
+", "@WebProfiler/Collector/exception.html.twig", "C:\\Users\\raque\\OneDrive\\Documentos\\GitHub\\PracticaLliureWEB_Symfony\\SweetsAndDesserts\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\exception.html.twig");
     }
 }

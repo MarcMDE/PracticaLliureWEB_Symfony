@@ -600,6 +600,6 @@ class __TwigTemplate_116eefb72d19bc6ba576c10b5122281eeae060868bd9adfcf4639199399
         }())
     </script>
 {% endblock %}
-", "@WebProfiler/Profiler/layout.html.twig", "C:\\Users\\MarcMDE\\Desktop\\PracticaWeb\\SweetsAndDesserts\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\layout.html.twig");
+", "@WebProfiler/Profiler/layout.html.twig", "C:\\Users\\raque\\OneDrive\\Documentos\\GitHub\\PracticaLliureWEB_Symfony\\SweetsAndDesserts\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\layout.html.twig");
     }
 }

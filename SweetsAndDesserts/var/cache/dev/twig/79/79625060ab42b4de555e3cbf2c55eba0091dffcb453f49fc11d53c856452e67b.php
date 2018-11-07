@@ -305,6 +305,6 @@ header .container { display: flex; justify-content: space-between; }
     .hidden-xs-down { display: initial; }
     .help-link { margin-left: 30px; }
 }
-", "@Twig/exception.css.twig", "C:\\Users\\MarcMDE\\Desktop\\PracticaWeb\\SweetsAndDesserts\\vendor\\symfony\\twig-bundle\\Resources\\views\\exception.css.twig");
+", "@Twig/exception.css.twig", "C:\\Users\\raque\\OneDrive\\Documentos\\GitHub\\PracticaLliureWEB_Symfony\\SweetsAndDesserts\\vendor\\symfony\\twig-bundle\\Resources\\views\\exception.css.twig");
     }
 }

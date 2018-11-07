@@ -210,6 +210,6 @@ class __TwigTemplate_f034ef87a3206ab11b9e44a5a0fad7d1f9008251002e63c17c7f748ae1f
         {{ include('@Twig/base_js.html.twig') }}
     </body>
 </html>
-", "@Twig/layout.html.twig", "C:\\Users\\MarcMDE\\Desktop\\PracticaWeb\\SweetsAndDesserts\\vendor\\symfony\\twig-bundle\\Resources\\views\\layout.html.twig");
+", "@Twig/layout.html.twig", "C:\\Users\\raque\\OneDrive\\Documentos\\GitHub\\PracticaLliureWEB_Symfony\\SweetsAndDesserts\\vendor\\symfony\\twig-bundle\\Resources\\views\\layout.html.twig");
     }
 }
