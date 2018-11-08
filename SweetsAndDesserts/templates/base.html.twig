@@ -8,8 +8,10 @@
             <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
             <link rel="stylesheet" href="{{ asset('css/font.css') }}">
             <link rel="stylesheet" href="{{ asset('css/socialbar.css') }}">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
             <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+            <script src="stickyBar.js"></script>
         {% endblock %}
     </head>
     <body>
@@ -18,7 +20,18 @@
 
                 <div class="w3-bar w3-border">
                     <div class="w3-bar-item">
+                        <a href="http://127.0.0.1:8000/products">
                         <img id="logo" src="{{ asset('imatges/SweetsDesserts&BreadIndividualPetit.png') }}"/>
+                        </a>
+                    </div>
+
+                    <div class ="w3-bar-item w3-dropdown-hover navbar-item">
+                        <button class="w3-button navbar-button">PRODUCTES</button>
+                        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                            <a href="#" class="w3-bar-item w3-button">Tots</a>
+                            <a href="#" class="w3-bar-item w3-button">En promoció</a>
+                            <a href="#" class="w3-bar-item w3-button">De Temporada</a>
+                        </div>
                     </div>
 
                     <div class ="w3-bar-item navbar-item">
@@ -48,22 +61,20 @@
                     <div class ="w3-bar-item navbar-item">
                         <button class="w3-button navbar-button">PA I BASTONETS</button>
                     </div>
-
-                    <div class ="w3-bar-item w3-dropdown-hover navbar-item">
-                        <button class="w3-button navbar-button">PRODUCTES</button>
-                        <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                            <a href="#" class="w3-bar-item w3-button">Tots</a>
-                            <a href="#" class="w3-bar-item w3-button">En promoció</a>
-                            <a href="#" class="w3-bar-item w3-button">De Temporada</a>
-                    </div>
                 </div>
 
-                    <button class="nav-btn" onclick="onUsuariBtnClick(event)"><i class="fas fa-user-circle fa-2x"></i></button>
-                    <div id="usuariRegistre" class="dropdown" style="right:70px">
-                        <a href="">Registre't</a>
-                        <a href="">Inicia sessió</a>
+                    <div class ="w3-bar-item w3-dropdown-click navbar-item">
+                        <button class="nav-btn" onclick="onUsuariBtnClick(event)"><i class="fas fa-user-circle fa-2x"></i></button>
+                        <div id="usuariRegistre" class="dropdown">
+                            <a href="" class="w3-bar-item w3-button">Registre't</a>
+                            <a href="" class="w3-bar-item w3-button">Inicia sessió</a>
+                        </div>
                     </div>
-                    <button class="nav-btn"><i class="fas fa-shopping-basket fa-2x"></i></ion-icon></button>
+
+                    <div class = "w3-bar-item">
+                        <button class="nav-btn"><i class="fas fa-shopping-basket fa-2x"></i></ion-icon></button>
+                    </div>
+
 
                 <div class="social-bar">
                     <a href="https://www.facebook.com/pg/SweetsDessertsBread-174215420181490/posts/" class="icon icon-facebook2" target="_blank"></a>

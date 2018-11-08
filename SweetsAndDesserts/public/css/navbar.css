@@ -29,6 +29,7 @@ body{
 .w3-button:hover{
     color: #B03A2E !important;
     background-color: #FFE4E1 !important;
+    transition: 0.3s;
 
 }
 
@@ -37,9 +38,24 @@ body{
     -webkit-text-stroke-color: #B03A2E;
     color: #B03A2E !important;
     background-color: #FFE4E1 !important;
+    transition: 0.3s;
 }
 
 img#logo{
     width: 170px;
     height: 40px;
+}
+
+button.nav-btn{
+    border: none;
+    outline: none;
+    background-color: initial;
+    color: #F7819F;
+    transition: 0.5s;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+button.nav-btn:hover{
+    color: #B03A2E;
 }

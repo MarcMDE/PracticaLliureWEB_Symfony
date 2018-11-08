@@ -21,12 +21,12 @@ body {
 }
 
 .icon {
-	color: #111111;
+	color: #FFE4E1;
 	text-decoration: none;
 	padding: .7rem;
 	display: flex;
 	transition: all .5s;
-	background: #FFE4E1;
+	background: #F7819F;
 }
 
 .icon:first-child{
