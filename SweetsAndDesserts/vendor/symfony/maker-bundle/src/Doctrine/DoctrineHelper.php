@@ -16,8 +16,7 @@ use Doctrine\Common\Persistence\Mapping\Driver\MappingDriver;
 use Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
-use Doctrine\ORM\Mapping\MappingException as ORMMappingException;
-use Doctrine\Common\Persistence\Mapping\MappingException as PersistenceMappingException;
+use Doctrine\ORM\Mapping\MappingException;
 use Doctrine\ORM\Tools\DisconnectedClassMetadataFactory;
 use Symfony\Bridge\Doctrine\ManagerRegistry;
 use Symfony\Bundle\MakerBundle\Util\ClassNameDetails;
@@ -133,9 +132,7 @@ final class DoctrineHelper
             if ($disconnected) {
                 try {
                     $loaded = $cmf->getAllMetadata();
-                } catch (ORMMappingException $e) {
-                    $loaded = $cmf instanceof AbstractClassMetadataFactory ? $cmf->getLoadedMetadata() : [];
-                } catch (PersistenceMappingException $e) {
+                } catch (MappingException $e) {
                     $loaded = $cmf instanceof AbstractClassMetadataFactory ? $cmf->getLoadedMetadata() : [];
                 }
 
@@ -179,14 +176,5 @@ final class DoctrineHelper
         }
 
         return null;
-    }
-
-    public function isClassAMappedEntity(string $className): bool
-    {
-        if (!$this->isDoctrineInstalled()) {
-            return false;
-        }
-
-        return (bool) $this->getMetadata($className);
     }
 }

@@ -12,7 +12,6 @@
 namespace Symfony\Bundle\MakerBundle\Maker;
 
 use Symfony\Bundle\MakerBundle\ConsoleStyle;
-use Symfony\Bundle\MakerBundle\DependencyBuilder;
 use Symfony\Bundle\MakerBundle\MakerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -33,19 +32,5 @@ abstract class AbstractMaker implements MakerInterface
         $io->writeln(' <bg=green;fg=white> Success! </>');
         $io->writeln(' <bg=green;fg=white>          </>');
         $io->newLine();
-    }
-
-    protected function addDependencies(array $dependencies, string $message = null): string
-    {
-        $dependencyBuilder = new DependencyBuilder();
-
-        foreach ($dependencies as $class => $name) {
-            $dependencyBuilder->addClassDependency($class, $name);
-        }
-
-        return $dependencyBuilder->getMissingPackagesMessage(
-            $this->getCommandName(),
-            $message
-        );
     }
 }

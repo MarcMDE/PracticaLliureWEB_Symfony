@@ -201,13 +201,8 @@ final class MakeEntity extends AbstractMaker implements InputAwareMakerInterface
             } elseif ($newField instanceof EntityRelation) {
                 // both overridden below for OneToMany
                 $newFieldName = $newField->getOwningProperty();
-                if ($newField->isSelfReferencing()) {
-                    $otherManipulatorFilename = $entityPath;
-                    $otherManipulator = $manipulator;
-                } else {
-                    $otherManipulatorFilename = $this->getPathOfClass($newField->getInverseClass());
-                    $otherManipulator = $this->createClassManipulator($otherManipulatorFilename, $io, $overwrite);
-                }
+                $otherManipulatorFilename = $this->getPathOfClass($newField->getInverseClass());
+                $otherManipulator = $this->createClassManipulator($otherManipulatorFilename, $io, $overwrite);
                 switch ($newField->getType()) {
                     case EntityRelation::MANY_TO_ONE:
                         if ($newField->getOwningClass() === $entityClassDetails->getFullName()) {
@@ -384,12 +379,6 @@ final class MakeEntity extends AbstractMaker implements InputAwareMakerInterface
     {
         $allTypes = Type::getTypesMap();
 
-        if ('Hyper' === getenv('TERM_PROGRAM')) {
-            $wizard = 'wizard 🧙';
-        } else {
-            $wizard = '\\' === \DIRECTORY_SEPARATOR ? 'wizard' : 'wizard 🧙';
-        }
-
         $typesTable = [
             'main' => [
                 'string' => [],
@@ -399,7 +388,7 @@ final class MakeEntity extends AbstractMaker implements InputAwareMakerInterface
                 'float' => [],
             ],
             'relation' => [
-                'relation' => 'a '.$wizard.' will help you build the relation',
+                'relation' => 'a wizard will help you build the relation',
                 EntityRelation::MANY_TO_ONE => [],
                 EntityRelation::ONE_TO_MANY => [],
                 EntityRelation::MANY_TO_MANY => [],
