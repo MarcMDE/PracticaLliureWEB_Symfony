@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33a0af3d-a09b-475c-872a-f573a1132d99" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/font.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/fonts/desktop.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/fonts/icomoon.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/fonts/icomoon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/fonts/icomoon.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/fonts/icomoon.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/navbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/socialbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/imatges/SweetsDesserts&amp;BreadIndividualPetit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/imatges/fonsBarraSDB.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/imatges/fonsBarraSDBOp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/stickyBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/products/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProductsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
