@@ -21,7 +21,7 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         if (null === self::$declaredRoutes) {
             self::$declaredRoutes = array(
         'app_products_index' => array(array(), array('_controller' => 'App\\Controller\\ProductsController::index'), array(), array(array('text', '/products')), array(), array()),
-        'app_products_detail' => array(array('slug'), array('_controller' => 'App\\Controller\\ProductsController::detail'), array(), array(array('variable', '/', '[^/]++', 'slug'), array('text', '/products')), array(), array()),
+        'app_products_detail' => array(array(), array('_controller' => 'App\\Controller\\ProductsController::detail'), array(), array(array('text', '/products/detail')), array(), array()),
         '_twig_error_test' => array(array('code', '_format'), array('_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code' => '\\d+'), array(array('variable', '.', '[^/]++', '_format'), array('variable', '/', '\\d+', 'code'), array('text', '/_error')), array(), array()),
         '_wdt' => array(array('token'), array('_controller' => 'web_profiler.controller.profiler::toolbarAction'), array(), array(array('variable', '/', '[^/]++', 'token'), array('text', '/_wdt')), array(), array()),
         '_profiler_home' => array(array(), array('_controller' => 'web_profiler.controller.profiler::homeAction'), array(), array(array('text', '/_profiler/')), array(), array()),
