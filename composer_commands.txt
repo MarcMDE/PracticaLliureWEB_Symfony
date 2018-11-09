@@ -1,2 +1,0 @@
-composer require server --dev
-composer require doctrine/annotations

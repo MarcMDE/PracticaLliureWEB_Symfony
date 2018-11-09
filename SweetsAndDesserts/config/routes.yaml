@@ -1,3 +1,0 @@
-#index:
-#    path: /products
-#    controller: App\Controller\ProductsController::index

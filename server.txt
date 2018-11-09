@@ -1,3 +1,0 @@
-php bin/console server:run
-.bin/console server:run
-php bin/console server:stop
