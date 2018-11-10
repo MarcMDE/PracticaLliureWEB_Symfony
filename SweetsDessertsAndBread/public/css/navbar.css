@@ -1,0 +1,61 @@
+body{
+    font-size: 12px;
+    /*font-family: 'Coming Soon', cursive;*/
+    font-family: 'Montserrat', sans-serif;
+}
+.w3-bar{
+    background: url("../assets/images/fonsBarraSDBOP.png");
+    background-size: 70px 70px;
+    height: 56px;
+}
+
+.w3-bar-item.navbar-item{
+    height: inherit !important;
+    padding: 0;
+}
+
+.w3-button{
+    color: #F7819F;
+}
+
+.navbar-button{
+    font-weight: bolder;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #111111;
+    height: inherit !important;
+    font-size: 12px;
+}
+
+.w3-button:hover{
+    color: #B03A2E !important;
+    background-color: #FFE4E1 !important;
+    transition: 0.3s;
+
+}
+
+.w3-button.navbar-button:hover, .w3-dropdown-hover:hover > .w3-button.navbar-button:first-child{
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #B03A2E;
+    color: #B03A2E !important;
+    background-color: #FFE4E1 !important;
+    transition: 0.3s;
+}
+
+img#logo{
+    width: 170px;
+    height: 40px;
+}
+
+button.nav-btn{
+    border: none;
+    outline: none;
+    background-color: initial;
+    color: #F7819F;
+    transition: 0.5s;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+button.nav-btn:hover{
+    color: #B03A2E;
+}
