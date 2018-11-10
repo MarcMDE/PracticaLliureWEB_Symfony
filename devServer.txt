@@ -1,0 +1,2 @@
+Run: php bin/console server:run
+Run: php bin/console (mostra totes comandes disponibles amb console)

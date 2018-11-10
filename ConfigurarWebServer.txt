@@ -1,0 +1,9 @@
+  * Run: composer require symfony/web-server-bundle --dev (utilitzem este durant el desenvolupament) 
+
+  * Run your application:
+    1. Change to the project directory
+    2. Create your code repository with the git init command
+    3. Run composer require server --dev to install the development web server,
+       or configure another supported web server https://symfony.com/doc/current/setup/web_server_configuration.html
+
+  * Read the documentation at https://symfony.com/doc

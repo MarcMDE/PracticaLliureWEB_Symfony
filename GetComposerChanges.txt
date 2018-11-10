@@ -1,0 +1,2 @@
+- Go to project directory
+- Run: composer install
