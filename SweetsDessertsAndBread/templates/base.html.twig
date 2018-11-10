@@ -12,16 +12,14 @@
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
             <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-            <script src="stickyBar.js"></script>
         {% endblock %}
     </head>
     <body>
         {% block body %}
-            {% block content %}
                 <div class="w3-bar w3-border">
                     <div class="w3-bar-item">
                         <a href="http://127.0.0.1:8000/products">
-                            <img id="logo" src="{{ asset('images/SweetsDesserts&BreadIndividualPetit.png') }}"/>
+                            <img id="logo" src="{{ asset('assets/images/SweetsDesserts&BreadIndividualPetit.png') }}"/>
                         </a>
                     </div>
 
@@ -83,6 +81,7 @@
                     <a href="mailto:sweets.and.desserts.r@gmail.com" class="icon icon-mail"></a>
                 </div>
             {% endblock %}
+        {% block content %}
         {% endblock %}
 
         {% block javascripts %}
