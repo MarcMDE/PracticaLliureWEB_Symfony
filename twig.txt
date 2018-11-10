@@ -1,0 +1,45 @@
+Tags&Doc: https://twig.symfony.com/doc/2.x/
+
+
+Example: 
+("index.html.twig")
+{% extends 'base.html.twig' %} {# "Herencia" si una template hereda, tot el seu contingut ha d'estar dins un block#}
+
+{% block body %}
+    {# This is a comment #}
+
+    <h1>{{ title }}</h1> {# This is a print {} #}
+
+    <div>ArrLength: {{ arr|length }}</div> {# This is a filter "|"#}
+
+    {% for element in arr %} {# this is a for %% #}
+        <div>{{ element }}</div>
+    {%  endfor %}
+{% endblock %}
+
+("base.html.twig")
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
+
+("controller/...")
+public function Index()
+    {
+        //return new Response("OMG! It works!");
+
+        $exempleArr = ["Hola1", "Hola2", "Hola3"];
+
+        return $this->render('shop/index.html.twig', [
+            'title' => "SD&B",
+            'arr' => $exempleArr
+        ]);
+    }

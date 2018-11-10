@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %} {# "Herencia" si una template hereda, tot el seu contingut ha d'estar dins un block#}
+
+{% block body %}
+    {# This is a comment #}
+
+    <h1>{{ title }}</h1> {# This is a print {} #}
+
+    <div>ArrLength: {{ arr|length }}</div> {# This is a filter "|"#}
+
+    {% for element in arr %} {# this is a for %% #}
+        <div>{{ element }}</div>
+    {%  endfor %}
+{% endblock %}
