@@ -8,13 +8,14 @@
 
 namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 class Shop extends AbstractController
 {
     /**
-     * @Route("/shop/")
+     * @Route("/shop/", name="shop_index")
      */
     public function Index()
     {
@@ -26,6 +27,25 @@ class Shop extends AbstractController
             'title' => "SD&B",
             'arr' => $exempleArr
         ]);
+    }
+
+    /**
+     * @Route("/shop/detail/{id}", name="shop_detail")
+     */
+    public function Detail($id)
+    {
+        return $this->render('shop/detail.html.twig', [
+            'id' => $id
+        ]);
+    }
+
+    // Exemple de resposta Json per a una crida Ajax
+    /**
+     * @Route("/shop/AjaxResp/", methods={"POST"})
+     */
+    public function AjaxResp()
+    {
+        return JsonResponse::create(['nom_var' => rand(5,100)]);
     }
 
 }

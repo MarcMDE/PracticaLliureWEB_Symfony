@@ -10,4 +10,15 @@
     {% for element in arr %} {# this is a for %% #}
         <div>{{ element }}</div>
     {%  endfor %}
+
+    <div>Generate URL: <a href="{{ path('shop_index') }}">SHOP INDEX</a> </div>
+    <div>Link to detail: <a href="{{ path('shop_detail', {id:5} ) }}">Detail with id=5</a> </div>
+
+    <button class="w3-button w3-black" onclick="ajaxCall('ajaxResp')">Button</button>
+    <div id="ajaxResp"></div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }} {# Afegeix el contingut del block del parent, així, podem afegir scripts concrets només per aquesta template sense sobrescriure els del pare#}
+    <script src="{{ asset('js/example.js') }}"></script>
 {% endblock %}
