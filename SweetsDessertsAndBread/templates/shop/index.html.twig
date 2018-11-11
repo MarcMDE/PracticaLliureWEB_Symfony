@@ -3,6 +3,15 @@
 {% block content %}
     {# This is a comment #}
 
+    <div class="flex-container">
+        {% for product in productes %}
+            <div>
+                
+            </div>
+        {% endfor %}
+    </div>
+
+
     <h1>{{ title }}</h1> {# This is a print {} #}
 
     <div>Generate URL: <a href="{{ path('shop_index') }}">SHOP INDEX</a> </div>

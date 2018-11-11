@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,16 @@ class Productes
      * @ORM\JoinColumn(nullable=false)
      */
     private $Categoria;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Imatges", mappedBy="Producte", orphanRemoval=true)
+     */
+    private $Imatges;
+
+    public function __construct()
+    {
+        $this->Imatges = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +132,37 @@ class Productes
     public function setCategoria(?Categories $Categoria): self
     {
         $this->Categoria = $Categoria;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Imatges[]
+     */
+    public function getImatges(): Collection
+    {
+        return $this->Imatges;
+    }
+
+    public function addImatge(Imatges $imatge): self
+    {
+        if (!$this->Imatges->contains($imatge)) {
+            $this->Imatges[] = $imatge;
+            $imatge->setProducte($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImatge(Imatges $imatge): self
+    {
+        if ($this->Imatges->contains($imatge)) {
+            $this->Imatges->removeElement($imatge);
+            // set the owning side to null (unless already changed)
+            if ($imatge->getProducte() === $this) {
+                $imatge->setProducte(null);
+            }
+        }
 
         return $this;
     }
