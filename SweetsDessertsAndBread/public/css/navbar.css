@@ -7,11 +7,19 @@ body{
     background: url("../assets/images/fonsBarraSDBOP.png");
     background-size: 70px 70px;
     height: 56px;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
+    /*position: fixed;
+    top: 0;*/
+}
+
+#pagecontent{
+    margin-top: 56px;
 }
 
 .w3-bar-item.navbar-item{
     height: inherit !important;
     padding: 0;
+    -webkit-text-stroke-color: #111111;
 }
 
 .w3-button{
@@ -21,7 +29,6 @@ body{
 .navbar-button{
     font-weight: bolder;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #111111;
     height: inherit !important;
     font-size: 12px;
     text-transform: uppercase;
@@ -55,8 +62,15 @@ button.nav-btn{
     transition: 0.5s;
     margin-left: 10px;
     margin-right: 10px;
+    transform: translateY(17%);
+}
+
+button.nav-btn:hover, .w3-dropdown-hover:hover > button.nav-btn:first-child{
+    color: #B03A2E !important;
+    transition: 0.3s;
 }
 
 button.nav-btn:hover{
     color: #B03A2E;
 }
+

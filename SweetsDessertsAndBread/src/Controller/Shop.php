@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class Shop extends AbstractController
 {
-    private $DB = true;
+    private $DB = false;
     /**
      * @Route("/shop/", name="shop_index")
      */
@@ -25,11 +25,14 @@ class Shop extends AbstractController
 
         if(!$this->DB)
         {
-            $categories = array(new Categories(), new Categories(), new Categories(), new Categories());
-            $categories[0]->setNom("Pastissos");
-            $categories[1]->setNom("Madalenes");
-            $categories[2]->setNom("Coses");
-            $categories[3]->setNom("Mes coses");
+            $categories = array(new Categories(), new Categories(), new Categories(), new Categories(), new Categories(), new Categories(), new Categories());
+            $categories[0]->setNom("Braç de Gitano");
+            $categories[1]->setNom("Flams");
+            $categories[2]->setNom("Galetes");
+            $categories[3]->setNom("Magdalenes");
+            $categories[4]->setNom("Mousse");
+            $categories[5]->setNom("Pastissos");
+            $categories[6]->setNom("Pa i Bastonets");
         }
         else
         {
