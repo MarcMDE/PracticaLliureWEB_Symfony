@@ -8,24 +8,41 @@
 
 namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation\Article;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Categories;
 use Symfony\Component\HttpFoundation\Response;
 
 class Shop extends AbstractController
 {
+    private $DB = true;
     /**
      * @Route("/shop/", name="shop_index")
      */
     public function Index()
     {
-        //return new Response("OMG! It works!");
 
-        $exempleArr = ["Hola1", "Hola2", "Hola3"];
+        if(!$this->DB)
+        {
+            $categories = array(new Categories(), new Categories(), new Categories(), new Categories());
+            $categories[0]->setNom("Pastissos");
+            $categories[1]->setNom("Madalenes");
+            $categories[2]->setNom("Coses");
+            $categories[3]->setNom("Mes coses");
+        }
+        else
+        {
+            $rep = $this
+                ->getDoctrine()
+                ->getRepository(Categories::class);
+
+            $categories = $rep->findAll();
+        }
 
         return $this->render('shop/index.html.twig', [
             'title' => "SD&B",
-            'arr' => $exempleArr
+            'categories' => $categories
         ]);
     }
 

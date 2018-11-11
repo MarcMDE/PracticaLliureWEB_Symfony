@@ -24,6 +24,7 @@ body{
     -webkit-text-stroke-color: #111111;
     height: inherit !important;
     font-size: 12px;
+    text-transform: uppercase;
 }
 
 .w3-button:hover{

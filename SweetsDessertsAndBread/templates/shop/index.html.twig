@@ -5,12 +5,6 @@
 
     <h1>{{ title }}</h1> {# This is a print {} #}
 
-    <div>ArrLength: {{ arr|length }}</div> {# This is a filter "|"#}
-
-    {% for element in arr %} {# this is a for %% #}
-        <div>{{ element }}</div>
-    {%  endfor %}
-
     <div>Generate URL: <a href="{{ path('shop_index') }}">SHOP INDEX</a> </div>
     <div>Link to detail: <a href="{{ path('shop_detail', {id:5} ) }}">Detail with id=5</a> </div>
 

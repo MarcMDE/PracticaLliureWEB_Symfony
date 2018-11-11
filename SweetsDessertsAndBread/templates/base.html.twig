@@ -32,6 +32,12 @@
                         </div>
                     </div>
 
+                    {% for categoria in categories %}
+                        <div class ="w3-bar-item navbar-item">
+                            <button class="w3-button navbar-button">{{ categoria.Nom }}</button>
+                        </div>
+                    {% endfor %}
+<!--
                     <div class ="w3-bar-item navbar-item">
                         <button class="w3-button navbar-button">PASTISSOS</button>
                     </div>
@@ -60,7 +66,7 @@
                         <button class="w3-button navbar-button">PA I BASTONETS</button>
                     </div>
                 </div>
-
+-->
                 <div class ="w3-bar-item w3-dropdown-click navbar-item">
                     <button class="nav-btn" onclick="onUsuariBtnClick(event)"><i class="fas fa-user-circle fa-2x"></i></button>
                     <div id="usuariRegistre" class="dropdown">
