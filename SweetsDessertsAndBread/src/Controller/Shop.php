@@ -7,8 +7,8 @@
  */
 
 namespace App\Controller;
+use App\Entity\Productes;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation\Article;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Categories;
@@ -33,6 +33,8 @@ class Shop extends AbstractController
             $categories[4]->setNom("Mousse");
             $categories[5]->setNom("Pastissos");
             $categories[6]->setNom("Pa i Bastonets");
+
+            $productes = array(new Productes(), new Productes());
         }
         else
         {
@@ -41,11 +43,18 @@ class Shop extends AbstractController
                 ->getRepository(Categories::class);
 
             $categories = $rep->findAll();
+
+            $rep = $this
+                ->getDoctrine()
+                ->getRepository(Productes::class);
+
+            $productes = $rep->findAll();
         }
 
         return $this->render('shop/index.html.twig', [
             'title' => "SD&B",
-            'categories' => $categories
+            'categories' => $categories,
+            'productes' => $productes
         ]);
     }
 

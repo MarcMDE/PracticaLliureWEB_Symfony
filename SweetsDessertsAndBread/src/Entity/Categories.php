@@ -28,6 +28,11 @@ class Categories
      */
     private $Productes;
 
+    /**
+     * @ORM\Column(type="string", length=64)
+     */
+    private $ImagesPath;
+
     public function __construct()
     {
         $this->Productes = new ArrayCollection();
@@ -77,6 +82,18 @@ class Categories
                 $producte->setCategoria(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImagesPath(): ?string
+    {
+        return $this->ImagesPath;
+    }
+
+    public function setImagesPath(string $ImagesPath): self
+    {
+        $this->ImagesPath = $ImagesPath;
 
         return $this;
     }
