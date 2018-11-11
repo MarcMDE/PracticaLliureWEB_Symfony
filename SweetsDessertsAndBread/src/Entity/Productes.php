@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Categories;
+use App\Entity\Imatges;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductesRepository")
@@ -57,6 +59,12 @@ class Productes
     public function __construct()
     {
         $this->Imatges = new ArrayCollection();
+    }
+
+    public function getArxiuImatgePrincipal()
+    {
+        return "/assets/images/products" . "/pastissos/" . $this->id . "/" . "test.jpeg";
+        //return "/assets/images/products" . $this->Categoria->getNom() . $this->id . "/" . $this->Imatges[0]->getArxiu();
     }
 
     public function getId(): ?int

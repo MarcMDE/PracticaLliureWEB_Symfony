@@ -3,16 +3,13 @@
 {% block content %}
     {# This is a comment #}
 
-    <div class="flex-container">
-        {% for product in productes %}
+    <div class="flex-container products-flexbox">
+        {% for producte in productes %}
             <div>
-                
+                <img src="{{ asset(producte.getArxiuImatgePrincipal()) }}" class="w3-border w3-padding" alt="Producte">
             </div>
         {% endfor %}
     </div>
-
-
-    <h1>{{ title }}</h1> {# This is a print {} #}
 
     <div>Generate URL: <a href="{{ path('shop_index') }}">SHOP INDEX</a> </div>
     <div>Link to detail: <a href="{{ path('shop_detail', {id:5} ) }}">Detail with id=5</a> </div>

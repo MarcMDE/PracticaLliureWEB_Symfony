@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class Shop extends AbstractController
 {
-    private $DB = false;
+    private $DB = true;
     /**
      * @Route("/shop/", name="shop_index")
      */

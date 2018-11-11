@@ -12,10 +12,6 @@ body{
     top: 0;*/
 }
 
-#pagecontent{
-    margin-top: 56px;
-}
-
 .w3-bar-item.navbar-item{
     height: inherit !important;
     padding: 0;
