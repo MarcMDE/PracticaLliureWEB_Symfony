@@ -31,7 +31,10 @@ class ProductesRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-
+    public function  findActiveBy($id)
+    {
+        return $this->findOneBy(['id' => $id, 'Actiu' => true]);
+    }
 
     // /**
     //  * @return Productes[] Returns an array of Productes objects

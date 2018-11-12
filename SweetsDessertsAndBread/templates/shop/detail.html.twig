@@ -7,6 +7,12 @@
 
 {% block content %}
 
+    {% if producte is null %}
+    <div class="w3-panel w3-yellow">
+        <h3>Atenció</h3>
+        <p>El producte indicat no està disponible.</p>
+    </div>
+    {% else %}
     <!-- PAGINA D'EXEMPLE -->
 
     <table>
@@ -31,6 +37,8 @@
             </td>
         </tr>
     </table>
+
+    {% endif %}
 {% endblock %}
 
 {% block javascripts %}

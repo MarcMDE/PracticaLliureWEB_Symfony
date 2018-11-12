@@ -19,6 +19,17 @@ class CategoriesRepository extends ServiceEntityRepository
         parent::__construct($registry, Categories::class);
     }
 
+
+    public function  findAllNotEmpty()
+    {
+        return $this->createQueryBuilder('c')
+            //->andWhere('c.Productes != :null')->setParameter('null', serialize(null)) //not null
+            //->andWhere('c.Productes != :empty')->setParameter('empty', serialize([])) //not empty
+            ->orderBy('c.Nom', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Categories[] Returns an array of Categories objects
     //  */

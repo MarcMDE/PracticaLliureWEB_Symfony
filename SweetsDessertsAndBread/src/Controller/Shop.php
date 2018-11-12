@@ -42,7 +42,7 @@ class Shop extends AbstractController
                 ->getDoctrine()
                 ->getRepository(Categories::class);
 
-            $categories = $rep->findAll();
+            $categories = $rep->findAllNotEmpty();
 
             $rep = $this
                 ->getDoctrine()
@@ -80,13 +80,13 @@ class Shop extends AbstractController
                 ->getDoctrine()
                 ->getRepository(Categories::class);
 
-            $categories = $rep->findAll();
+            $categories = $rep->findAllNotEmpty();
 
             $rep = $this
                     ->getDoctrine()
                     ->getRepository(Productes::class);
 
-            $producte = $rep->find($id);
+            $producte = $rep->findActiveBy($id);
         }
 
         return $this->render('shop/detail.html.twig', [
