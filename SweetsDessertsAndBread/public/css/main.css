@@ -48,7 +48,8 @@ h1, h2, h3{
 }
 
 #page-content{
-    margin-top: 80px;
+    margin-top: 40px;
+   /* margin-top: 80px; // Amb stickyBar */
     margin-left: 65px;
     margin-right: 65px;
 }
