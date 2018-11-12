@@ -27,6 +27,13 @@ class Imatges
      */
     private $Arxiu;
 
+    public function getArxiuPath()
+    {
+        return "/assets/images/products" . $this->getProducte()->getCategoria()->getImagesPath() .
+            $this->getProducte()->getId() . "/" . $this->Arxiu;
+    }
+
+
     public function getProducte(): ?Productes
     {
         return $this->Producte;

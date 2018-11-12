@@ -52,7 +52,7 @@ class Shop extends AbstractController
         }
 
         return $this->render('shop/index.html.twig', [
-            'title' => "SD&B",
+            'title' => "Tots els productes",
             'categories' => $categories,
             'productes' => $productes
         ]);
