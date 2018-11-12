@@ -2,17 +2,110 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}SweetsDesserts&Bread{% endblock %}</title>
 
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('css/w3.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/font.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/socialbar.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+            <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            <div class="w3-bar w3-border tab">
+                <div class="w3-bar-item">
+                    <a href="{{ path('shop_index') }}">
+                        <img id="logo" src="{{ asset('assets/images/SweetsDesserts&BreadIndividualPetit.png') }}"/>
+                    </a>
+                </div>
+
+                <div class ="w3-bar-item w3-dropdown-hover navbar-item">
+                    <button class="w3-button navbar-button">PRODUCTES</button>
+                    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                        <a href="#" class="w3-bar-item w3-button">Tots</a>
+                        <a href="#" class="w3-bar-item w3-button">En promoció</a>
+                        <a href="#" class="w3-bar-item w3-button">De Temporada</a>
+                    </div>
+                </div>
+
+                {% for categoria in categories %}
+                    <div class ="w3-bar-item navbar-item">
+                        <button class="w3-button navbar-button tablinks" onclick="openCategory(event, '{{ categoria.Nom }}')">{{ categoria.Nom }}</button>
+                    </div>
+                {% endfor %}
+<!--
+                <div class ="w3-bar-item navbar-item">
+                    <button class="w3-button navbar-button">PASTISSOS</button>
+                </div>
+
+                <div class ="w3-bar-item navbar-item">
+                    <button class="w3-button navbar-button">BRAÇ DE GITANO</button>
+                </div>
+
+                <div class ="w3-bar-item navbar-item">
+                    <button class="w3-button navbar-button">FLAMS</button>
+                </div>
+
+                <div class ="w3-bar-item navbar-item">
+                    <button class="w3-button navbar-button">GALETES</button>
+                </div>
+
+                <div class ="w3-bar-item navbar-item">
+                    <button class="w3-button navbar-button">MAGDALENES</button>
+                </div>
+
+                <div class ="w3-bar-item navbar-item">
+                    <button class="w3-button navbar-button">MOUSSE</button>
+                </div>
+
+                <div class ="w3-bar-item navbar-item">
+                    <button class="w3-button navbar-button">PA I BASTONETS</button>
+                </div>
+            </div>
+-->
+
+                <div class = "w3-bar-item w3-dropdown-hover navbar-item w3-right">
+                    <button class="w3-button navbar-button"><i class="fas fa-shopping-basket fa-2x"></i></button>
+                    <div class="w3-dropdown-content w3-card-4 dropdown-content-right" style="width:250px">
+                        <img src="{{ asset('assets/images/Collage.PNG') }}" style="width:100%">
+                        <div class="w3-container">
+                            <p>Nom producte (serà una llista)</p>
+                            <p>Preu (anira amb cada producte)</p>
+                            <p>Preu Total (anira al final de tot)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class ="w3-bar-item w3-dropdown-hover navbar-item w3-right">
+                    <button class="w3-button navbar-button"><i class="fas fa-user-circle fa-2x"></i></button>
+                    <div class="w3-dropdown-content w3-bar-block w3-card-4 dropdown-content-right">
+                        <a href="#" class="w3-bar-item w3-button">Registre't</a>
+                        <a href="#" class="w3-bar-item w3-button">Inicia sessió</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-bar">
+                <a href="https://www.facebook.com/pg/SweetsDessertsBread-174215420181490/posts/" class="icon icon-facebook2" target="_blank"></a>
+                <a href="https://twitter.com/SweetsDesserts1" class="icon icon-twitter" target="_blank"></a>
+                <a href="https://www.instagram.com/sweets_desserts_and_bread/" class="icon icon-instagram" target="_blank"></a>
+                <a href="mailto:sweets.desserts.bread@gmail.com" class="icon icon-mail"></a>
+            </div>
+
+                <div id="page-content">
+                {% block content %}
+                {% endblock %}
+                </div>
+        {% endblock %}
 
         {% block javascripts %}
             <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+            <script src="{{ asset('js/clickcategory.js') }}"></script>
         {% endblock %}
     </body>
 </html>

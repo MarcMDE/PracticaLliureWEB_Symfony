@@ -1,0 +1,6 @@
+- Ja que metode autentif. ha cambiat a MySQL 8.0, s'ha d'executar 
+la comanda: ALTER USER 'mysqlUsername'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mysqlUsernamePassword';
+
+MIGATIONS:
+Crear migració: 'php bin/console make:migration'
+Aplicar migració: 'php bin/console doctrine:migrations:migrate'

@@ -1,2 +1,3 @@
 - Go to project directory
 - Run: composer install
+- Si falla, eliminar vendor i fer: composer update -v

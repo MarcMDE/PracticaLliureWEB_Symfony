@@ -7,25 +7,54 @@
  */
 
 namespace App\Controller;
+use App\Entity\Productes;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Categories;
 use Symfony\Component\HttpFoundation\Response;
 
 class Shop extends AbstractController
 {
+    private $DB = true;
     /**
      * @Route("/shop/", name="shop_index")
      */
     public function Index()
     {
-        //return new Response("OMG! It works!");
 
-        $exempleArr = ["Hola1", "Hola2", "Hola3"];
+        if(!$this->DB)
+        {
+            $categories = array(new Categories(), new Categories(), new Categories(), new Categories(), new Categories(), new Categories(), new Categories());
+            $categories[0]->setNom("Braç de Gitano");
+            $categories[1]->setNom("Flams");
+            $categories[2]->setNom("Galetes");
+            $categories[3]->setNom("Magdalenes");
+            $categories[4]->setNom("Mousse");
+            $categories[5]->setNom("Pastissos");
+            $categories[6]->setNom("Pa i Bastonets");
+
+            $productes = array(new Productes(), new Productes());
+        }
+        else
+        {
+            $rep = $this
+                ->getDoctrine()
+                ->getRepository(Categories::class);
+
+            $categories = $rep->findAll();
+
+            $rep = $this
+                ->getDoctrine()
+                ->getRepository(Productes::class);
+
+            $productes = $rep->findAll();
+        }
 
         return $this->render('shop/index.html.twig', [
             'title' => "SD&B",
-            'arr' => $exempleArr
+            'categories' => $categories,
+            'productes' => $productes
         ]);
     }
 
@@ -34,8 +63,36 @@ class Shop extends AbstractController
      */
     public function Detail($id)
     {
+        if(!$this->DB)
+        {
+            $categories = array(new Categories(), new Categories(), new Categories(), new Categories(), new Categories(), new Categories(), new Categories());
+            $categories[0]->setNom("Braç de Gitano");
+            $categories[1]->setNom("Flams");
+            $categories[2]->setNom("Galetes");
+            $categories[3]->setNom("Magdalenes");
+            $categories[4]->setNom("Mousse");
+            $categories[5]->setNom("Pastissos");
+            $categories[6]->setNom("Pa i Bastonets");
+        }
+        else
+        {
+            $rep = $this
+                ->getDoctrine()
+                ->getRepository(Categories::class);
+
+            $categories = $rep->findAll();
+
+            $rep = $this
+                    ->getDoctrine()
+                    ->getRepository(Productes::class);
+
+            $producte = $rep->find($id);
+        }
+
         return $this->render('shop/detail.html.twig', [
-            'id' => $id
+            'id' => $id,
+            'categories' => $categories,
+            'producte' => $producte
         ]);
     }
 

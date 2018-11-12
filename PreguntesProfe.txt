@@ -1,0 +1,2 @@
+- Alguna manera de fer (utilitzant MVC) que la clase base rebi tots els parametres de la bbdd 
+necessaris sense haver de fer-ho al controlador de la pagina "heredada"?

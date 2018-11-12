@@ -1,15 +1,25 @@
 {% extends 'base.html.twig' %} {# "Herencia" si una template hereda, tot el seu contingut ha d'estar dins un block#}
 
-{% block body %}
+{% block content %}
     {# This is a comment #}
 
-    <h1>{{ title }}</h1> {# This is a print {} #}
-
-    <div>ArrLength: {{ arr|length }}</div> {# This is a filter "|"#}
-
-    {% for element in arr %} {# this is a for %% #}
-        <div>{{ element }}</div>
-    {%  endfor %}
+    <div class="flex-container products-flexbox">
+        {% for producte in productes %}
+            <div class="products-flexbox-item">
+                <a href="{{ path('shop_detail', {id:producte.id}) }}">
+                    <img src="{{ asset(producte.getArxiuImatgePrincipal()) }}" class="w3-border" alt="Producte">
+                    <div class="producte-data">
+                        <div class="producte-nom"><p>{{ producte.nom }}</p></div>
+                        {% if producte.enOferta %}
+                            <div class="producte-preu-oferta">{{ producte.preuOferta }} €</div>
+                        {% else %}
+                            <div class="producte-preu">{{ producte.preu }} €</div>
+                        {% endif %}
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
 
     <div>Generate URL: <a href="{{ path('shop_index') }}">SHOP INDEX</a> </div>
     <div>Link to detail: <a href="{{ path('shop_detail', {id:5} ) }}">Detail with id=5</a> </div>
