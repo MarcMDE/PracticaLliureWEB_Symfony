@@ -1,6 +1,7 @@
 h1, h2, h3{
     font-family: "Coming Soon";
     font-weight: bolder;
+    text-decoration: underline overline wavy lightpink;
 }
 
 .products-flexbox.flex-container {
