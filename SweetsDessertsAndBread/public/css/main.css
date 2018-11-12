@@ -1,6 +1,7 @@
 h1, h2, h3{
     font-family: "Coming Soon";
     font-weight: bolder;
+    text-decoration: underline overline wavy lightpink;
 }
 
 .w3-panel p{
@@ -51,7 +52,7 @@ h1, h2, h3{
 }
 
 #page-content{
-    margin-top: 20px;
+   margin-top: 80px;
     margin-left: 65px;
     margin-right: 65px;
 }
