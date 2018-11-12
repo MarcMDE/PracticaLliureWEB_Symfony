@@ -12,6 +12,10 @@ body{
     top: 0;*/
 }
 
+.dropdown-content-right{
+    right:5px;
+}
+
 .w3-bar-item.navbar-item{
     height: inherit !important;
     padding: 0;

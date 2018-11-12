@@ -5,8 +5,18 @@
 
     <div class="flex-container products-flexbox">
         {% for producte in productes %}
-            <div>
-                <img src="{{ asset(producte.getArxiuImatgePrincipal()) }}" class="w3-border w3-padding" alt="Producte">
+            <div class="products-flexbox-item">
+                <a href="{{ path('shop_detail', {id:producte.id}) }}">
+                    <img src="{{ asset(producte.getArxiuImatgePrincipal()) }}" class="w3-border" alt="Producte">
+                    <div class="producte-data">
+                        <div class="producte-nom"><p>{{ producte.nom }}</p></div>
+                        {% if producte.enOferta %}
+                            <div class="producte-preu-oferta">{{ producte.preuOferta }} €</div>
+                        {% else %}
+                            <div class="producte-preu">{{ producte.preu }} €</div>
+                        {% endif %}
+                    </div>
+                </a>
             </div>
         {% endfor %}
     </div>

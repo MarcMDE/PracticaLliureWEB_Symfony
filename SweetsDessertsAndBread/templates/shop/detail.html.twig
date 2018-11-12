@@ -1,6 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    Welcome to the edit view!
-    Product id={{ id }}
+{% block content %}
+
+    <!-- PAGINA D'EXEMPLE -->
+
+    <table>
+        <tr><td style="font-size:45px;">{{ producte.Nom }}</td></tr>
+        <tr>
+            <td>
+                <img src="{{ asset(producte.getArxiuImatgePrincipal()) }}" class="w3-border" alt="Producte" style="max-width: 750px;max-height: 750px;">
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <p style="font-size: 20px;">{{ producte.Descripcio }}</p>
+                    </tr>
+                    <tr>
+                        {% if producte.enOferta %}
+                            <div class="producte-preu-oferta" style="font-size: 50px; color:deeppink;">{{ producte.preuOferta }} €</div>
+                        {% else %}
+                            <div class="producte-preu" style="font-size: 50px;">{{ producte.preu }} €</div>
+                        {% endif %}
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 {% endblock %}

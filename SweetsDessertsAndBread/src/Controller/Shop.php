@@ -63,8 +63,36 @@ class Shop extends AbstractController
      */
     public function Detail($id)
     {
+        if(!$this->DB)
+        {
+            $categories = array(new Categories(), new Categories(), new Categories(), new Categories(), new Categories(), new Categories(), new Categories());
+            $categories[0]->setNom("Braç de Gitano");
+            $categories[1]->setNom("Flams");
+            $categories[2]->setNom("Galetes");
+            $categories[3]->setNom("Magdalenes");
+            $categories[4]->setNom("Mousse");
+            $categories[5]->setNom("Pastissos");
+            $categories[6]->setNom("Pa i Bastonets");
+        }
+        else
+        {
+            $rep = $this
+                ->getDoctrine()
+                ->getRepository(Categories::class);
+
+            $categories = $rep->findAll();
+
+            $rep = $this
+                    ->getDoctrine()
+                    ->getRepository(Productes::class);
+
+            $producte = $rep->find($id);
+        }
+
         return $this->render('shop/detail.html.twig', [
-            'id' => $id
+            'id' => $id,
+            'categories' => $categories,
+            'producte' => $producte
         ]);
     }
 

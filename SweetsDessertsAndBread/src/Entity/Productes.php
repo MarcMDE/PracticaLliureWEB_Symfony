@@ -5,8 +5,6 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Categories;
-use App\Entity\Imatges;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductesRepository")
@@ -63,8 +61,13 @@ class Productes
 
     public function getArxiuImatgePrincipal()
     {
-        return "/assets/images/products" . "/pastissos/" . $this->id . "/" . "test.jpeg";
-        //return "/assets/images/products" . $this->Categoria->getNom() . $this->id . "/" . $this->Imatges[0]->getArxiu();
+        return "/assets/images/products" . $this->getCategoria()->getImagesPath() . $this->id . "/" . $this->Imatges[0]->getArxiu();
+    }
+
+    public function enOferta()
+    {
+        if ($this->PreuOferta == null) return false;
+        else return true;
     }
 
     public function getId(): ?int
