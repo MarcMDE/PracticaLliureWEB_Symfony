@@ -48,7 +48,7 @@ class Shop extends AbstractController
                 ->getDoctrine()
                 ->getRepository(Productes::class);
 
-            $productes = $rep->findAll();
+            $productes = $rep->findActive();
         }
 
         return $this->render('shop/index.html.twig', [
