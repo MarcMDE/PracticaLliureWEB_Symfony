@@ -1,0 +1,41 @@
+.pg-imatge { grid-area: imatge; }
+.pg-nom { grid-area: nom; }
+.pg-preu { grid-area: preu; }
+.pg-desc { grid-area: desc; }
+.pg-compra { grid-area: compra; }
+
+@media (min-width: 800px){
+    .pg-container {
+        display: grid;
+        grid-template-areas:
+                'imatge nom'
+                'imatge preu'
+                'imatge desc'
+                'imatge compra';
+        grid-gap: 10px;
+        background-color: #2196F3;
+        padding: 10px;
+    }
+}
+@media (max-width: 800px){
+    .pg-container {
+        display: grid;
+        grid-template-areas:
+                'nom preu'
+                'imatge'
+                'idesc'
+                'compra';
+        grid-gap: 10px;
+        background-color: #2196F3;
+        padding: 10px;
+    }
+}
+.pg-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px 0;
+    vertical-align: center;
+}
+
+.pg-container .pg-imatge{
+    text-align: center;
+}

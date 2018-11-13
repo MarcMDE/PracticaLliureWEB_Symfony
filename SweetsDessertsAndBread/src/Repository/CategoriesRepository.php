@@ -23,8 +23,7 @@ class CategoriesRepository extends ServiceEntityRepository
     public function  findAllNotEmpty()
     {
         return $this->createQueryBuilder('c')
-            //->andWhere('c.Productes != :null')->setParameter('null', serialize(null)) //not null
-            //->andWhere('c.Productes != :empty')->setParameter('empty', serialize([])) //not empty
+            ->innerJoin('c.Productes', 'p')
             ->orderBy('c.Nom', 'ASC')
             ->getQuery()
             ->getResult();

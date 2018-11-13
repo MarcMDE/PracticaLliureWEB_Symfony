@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %} {# "Herencia" si una template hereda, tot el seu contingut ha d'estar dins un block#}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/shop/index.css') }}">
+{% endblock %}
+
 {% block content %}
     <header class="w3-center">
         <h2>{{ title }}</h2>
