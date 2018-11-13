@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %} {# "Herencia" si una template hereda, tot el seu contingut ha d'estar dins un block#}
+
+{% block content %}
+    <header class="w3-center">
+    </header>
+
+    <div class="w3-container w3-pale-red">
+        <h4>Input Form</h4>
+    </div>
+
+    <div class="container">
+        <div class="w3-container">
+            <form action="/action_page.php"> <!-- Posar la pagina que hem d'anar quan cliquem boto registre -->
+
+            <label class="w3-text-black"><b>Nom</b></label>
+            <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple" type="text" placeholder="Nom">
+
+            <label class="w3-text-black"><b>Cognoms</b></label>
+            <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple" type="text" placeholder="Cognoms">
+
+            <label class="w3-text-black"><b>Cognoms</b></label>
+            <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple" type="text" placeholder="Cognoms">
+
+            <label class="w3-text-black"><b>País</b></label>
+            <select class="w3-select w3-border w3-border-pale-red w3-hover-border-purple" name="option">
+                <option value="" disabled selected>---</option>
+                <option value="1">Alemanya</option>
+                <option value="2">Catalunya</option>
+                <option value="3">Regne unit</option>
+            </select>
+
+            <input class="w3-radio" type="radio" name="gender" value="male" checked>
+            <label>Home</label>
+
+            <input class="w3-radio" type="radio" name="gender" value="female">
+            <label>Dona</label>
+
+            <input class="w3-radio" type="radio" name="gender" value="" disabled>
+            <label>exemple de desabilitar (Disabled)</label>
+
+
+            <button class="w3-btn w3-pale-red">Register</button>
+            </form>
+
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }} {# Afegeix el contingut del block del parent, així, podem afegir scripts concrets només per aquesta template sense sobrescriure els del pare#}
+    <script src="{{ asset('js/example.js') }}"></script>
+{% endblock %}
