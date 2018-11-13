@@ -58,12 +58,9 @@
 
 .products-flexbox .producte-data .producte-nom{
     width: 250px;
-    font-size: 22px;
+    font-size: 24px;
 }
 .products-flexbox .producte-data .producte-preu, .products-flexbox .producte-data .producte-preu-oferta{
     font-size: 40px;
     font-weight: bold;
-}
-.products-flexbox .producte-data .producte-preu-oferta{
-    color: deeppink;
 }

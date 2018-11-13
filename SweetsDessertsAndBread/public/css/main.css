@@ -1,20 +1,21 @@
 h1, h2, h3{
     font-weight: bolder;
     text-decoration: underline overline wavy lightpink;
-    font-family: "Coming Soon" !important;
+    font-family: 'Coming Soon', cursive, Arial;
 }
 
 #page-content{
-    font-family: "Coming Soon" !important;
+    font-family: 'Coming Soon', cursive, Arial;
     font-size: 22px;
+    margin-top: 80px;
+    margin-left: 65px;
+    margin-right: 65px;
 }
 
 .w3-panel p{
     font-size: 20px!important;
 }
 
-#page-content{
-   margin-top: 80px;
-    margin-left: 65px;
-    margin-right: 65px;
+.preu-oferta{
+    color: deeppink;
 }

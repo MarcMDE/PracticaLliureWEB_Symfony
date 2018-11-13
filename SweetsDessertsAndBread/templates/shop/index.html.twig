@@ -18,7 +18,7 @@
                     <div class="producte-data">
                         <div class="producte-nom"><p>{{ producte.nom }}</p></div>
                         {% if producte.enOferta %}
-                            <div class="producte-preu-oferta">{{ producte.preuOferta|number_format(2, ',') }} €</div>
+                            <div class="producte-preu preu-oferta">{{ producte.preuOferta|number_format(2, ',') }} €</div>
                         {% else %}
                             <div class="producte-preu">{{ producte.preu|number_format(2, ',') }} €</div>
                         {% endif %}

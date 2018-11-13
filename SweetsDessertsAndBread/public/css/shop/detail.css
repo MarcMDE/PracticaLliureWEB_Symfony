@@ -39,3 +39,12 @@
 .pg-container .pg-imatge{
     text-align: center;
 }
+
+.pg-container .pg-preu{
+    font-size: 46px;
+    font-weight: bold;
+}
+
+.pg-container .pg-nom{
+    font-size: 35px;
+}
