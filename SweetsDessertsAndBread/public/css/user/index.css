@@ -6,3 +6,17 @@
 .form-content input{
     width: 300px;
 }
+
+.userlog{
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -9em;
+    margin-left: -11em;
+}
+
+.detallet{
+    width: 100%;
+    color: #F7819F;
+}

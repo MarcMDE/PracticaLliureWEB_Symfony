@@ -10,6 +10,6 @@ function openUsuari(evt, userName) {
     }
 
     document.getElementById(userName).style.display = "block";
-    //evt.currentTarget.className += " w3-red";
-    evt.currentTarget.style.background = "#FFE4E1";
+    evt.currentTarget.className += " w3-white";
+    //evt.currentTarget.style.background = "#FFE4E1";
 }
