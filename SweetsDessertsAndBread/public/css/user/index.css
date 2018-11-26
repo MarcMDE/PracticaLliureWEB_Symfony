@@ -1,3 +1,8 @@
 .form-content{
     margin-left: 20px;
+    font-size: 17px;
+}
+
+.form-content input{
+    width: 300px;
 }
