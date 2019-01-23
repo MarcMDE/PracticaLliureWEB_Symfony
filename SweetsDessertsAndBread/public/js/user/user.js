@@ -1,12 +1,22 @@
-function openUsuari(evt, userName) {
+$(function(){
+    $("#EntrarTab").addClass("w3-white");
+})
+
+function openUsuari(evt, userName)
+{
     var i, x, tablinks;
     x = document.getElementsByClassName("usuari");
-    for (i = 0; i < x.length; i++) {
+    for (i = 0; i < x.length; i++)
+    {
         x[i].style.display = "none";
     }
+
+
     tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < x.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+    console.log(tablinks);
+    for (i = 0; i < x.length; i++)
+    {
+        tablinks[i].className = tablinks[i].className.replace(" w3-white", "");
     }
 
     document.getElementById(userName).style.display = "block";

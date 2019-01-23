@@ -2,8 +2,6 @@ function openCategory(evt, categoryName) {
     // Declare all variables
     var i, tabcontent, tablinks;
 
-    console.log("sfdf");
-
     // Get all elements with class="tablinks" and remove the class "active"
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {

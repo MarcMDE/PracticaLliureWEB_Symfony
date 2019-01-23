@@ -73,4 +73,29 @@ class ShopController extends AbstractController
         return JsonResponse::create(['nom_var' => rand(5,100)]);
     }
 
+    /**
+     * @Route("/shop/bag/{id}", name="shop_bag")
+     */
+    public function Bag($id)
+    {
+        $rep = $this
+            ->getDoctrine()
+            ->getRepository(Categories::class);
+
+        $categories = $rep->findAllNotEmpty();
+
+        $rep = $this
+            ->getDoctrine()
+            ->getRepository(Productes::class);
+
+        $producte = $rep->findActiveBy($id);
+
+        return $this->render('shop/bag.html.twig', [
+            'id' => $id,
+            'categories' => $categories,
+            'producte' => $producte
+        ]);
+    }
+
+
 }

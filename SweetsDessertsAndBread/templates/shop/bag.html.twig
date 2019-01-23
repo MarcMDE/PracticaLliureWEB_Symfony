@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/shop/bag.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="w3-container">
+        <h2>Closable List Items</h2>
+        <p>Per eliminar el producte, clica a la "x":</p>
+        <ul class="w3-ul w3-card-4">
+
+            {# Mirar quina es la manera de posar els productes seleccionats anteriorment #}
+
+            <li class="w3-display-container">Jill <span onclick="this.parentElement.style.display='none'" class="w3-button w3-transparent w3-display-right">&times;</span></li>
+            <li class="w3-display-container">Adam <span onclick="this.parentElement.style.display='none'" class="w3-button w3-transparent w3-display-right">&times;</span></li>
+            <li class="w3-display-container">Eve <span onclick="this.parentElement.style.display='none'" class="w3-button w3-transparent w3-display-right">&times;</span></li>
+        </ul>
+    </div>
+
+{% endblock %}
+
+{#
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/shop/bag.js') }}"></script> S'HA DE CREAR AQUEST JS
+{% endblock %}
+#}
