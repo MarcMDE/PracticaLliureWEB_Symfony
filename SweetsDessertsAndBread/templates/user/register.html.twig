@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %} {# "Herencia" si una template hereda, tot el seu contingut ha d'estar dins un block#}
+
+{% block stylesheets %}
+
+    {{ parent()}}
+
+{% endblock %}
+
+{% block content %}
+    <header class="w3-center">
+        Has completat el registre correctament!
+    </header>
+
+    <div class="detallet">
+      <p>
+          Fes click al següent enllaç per activar i entrar al teu nou compte!
+          <a href="{{ path('user_index') }}">LOG-IN</a>
+      </p>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }} {# Afegeix el contingut del block del parent, així, podem afegir scripts concrets només per aquesta template sense sobrescriure els del pare#}
+{% endblock %}

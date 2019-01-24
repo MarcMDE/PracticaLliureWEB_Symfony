@@ -15,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Categories;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 class UserController extends AbstractController
 {
@@ -40,9 +41,43 @@ class UserController extends AbstractController
     /**
      * @Route("/user/Register/", methods={"POST"}, name="user_register")
      */
-    public function Register(EntityManagerInterface $em, $user)
+    //public function Register(EntityManagerInterface $em, $Nom, $Cognoms, $Telf, $Adreca, $Localitat, $CP, $Pais, $Email, $Psw, $Foto, $RebreMails)
+    public function Register(EntityManagerInterface $em, Request $request)
     {
+        // TODO: Guardar foto a servidor i guardar nom foto a new User
+
+        $formData = $request->request->all();
+
         $newUser = new Usuaris();
-        return JsonResponse::create(['nom_var' => rand(5,100)]);
+        $newUser->setNom($formData['Nom']);
+        $newUser->setCognoms($formData['Cognoms']);
+        $newUser->setTelefon($formData['Telf']);
+        $newUser->setDireccio($formData['Direccio']);
+        $newUser->setLocalitat($formData['Localitat']);
+        $newUser->setCodiPostal($formData['CP']);
+        $newUser->setPais($formData['Pais']);
+        $newUser->setEmail($formData['Email']);
+        $newUser->setPassword($formData['Psw']);
+        $newUser->setRebreMails($formData['RebreMails']);
+
+        $time = new \DateTime();
+        $time->format('H:i:s \O\n Y-m-d');
+
+        $newUser->setDataCreacio($time);
+        $newUser->setEstat(0);
+
+        $em->persist($newUser);
+        $em->flush();
+
+        $rep = $this
+            ->getDoctrine()
+            ->getRepository(Categories::class);
+
+        $categories = $rep->findAllNotEmpty();
+
+        return $this->render('user/register.html.twig', [
+            'categories' => $categories
+
+        ]);
     }
 }

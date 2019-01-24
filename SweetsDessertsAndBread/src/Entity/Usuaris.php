@@ -68,6 +68,26 @@ class Usuaris implements UserInterface
      */
     private $Arxiu_Foto;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $RebreMails;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Localitat;
+
+    /**
+     * @ORM\Column(type="string", length=5)
+     */
+    private $CodiPostal;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Pais;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -226,6 +246,54 @@ class Usuaris implements UserInterface
     public function setArxiuFoto(?string $Arxiu_Foto): self
     {
         $this->Arxiu_Foto = $Arxiu_Foto;
+
+        return $this;
+    }
+
+    public function getRebreMails(): ?bool
+    {
+        return $this->RebreMails;
+    }
+
+    public function setRebreMails(bool $RebreMails): self
+    {
+        $this->RebreMails = $RebreMails;
+
+        return $this;
+    }
+
+    public function getLocalitat(): ?string
+    {
+        return $this->Localitat;
+    }
+
+    public function setLocalitat(string $Localitat): self
+    {
+        $this->Localitat = $Localitat;
+
+        return $this;
+    }
+
+    public function getCodiPostal(): ?string
+    {
+        return $this->CodiPostal;
+    }
+
+    public function setCodiPostal(string $CodiPostal): self
+    {
+        $this->CodiPostal = $CodiPostal;
+
+        return $this;
+    }
+
+    public function getPais(): ?string
+    {
+        return $this->Pais;
+    }
+
+    public function setPais(string $Pais): self
+    {
+        $this->Pais = $Pais;
 
         return $this;
     }
