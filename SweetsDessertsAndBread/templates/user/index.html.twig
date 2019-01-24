@@ -28,11 +28,11 @@
 
         <div class="w3-container">
 
-            <form action="/action_page.php"> <!-- Posar la pagina que hem d'anar quan cliquem boto registre -->
+            <form action="{{ path('user_register') }}" method="post">
 
-            <div class="w3-container w3-pale-red w3-round">
-                <h4>Dades Personals</h4>
-            </div>
+                <div class="w3-container w3-pale-red w3-round">
+                    <h4>Dades Personals</h4>
+                </div>
 
                 <div class = "form-content">
                     <label class="w3-text-black"><b>Nom</b></label>
@@ -50,9 +50,9 @@
 
                 <br>
 
-            <div class="w3-container w3-pale-red w3-round">
-                <h4>Direcció</h4>
-            </div>
+                <div class="w3-container w3-pale-red w3-round">
+                    <h4>Direcció</h4>
+                </div>
 
                 <div class="form-content">
                     <label class="w3-text-black"><b>Adreça</b></label>
