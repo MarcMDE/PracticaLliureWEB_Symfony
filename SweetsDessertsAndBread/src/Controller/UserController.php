@@ -8,10 +8,12 @@
 
 namespace App\Controller;
 use App\Entity\Productes;
+use App\Entity\Usuaris;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Categories;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends AbstractController
@@ -32,5 +34,15 @@ class UserController extends AbstractController
             'categories' => $categories
 
         ]);
+    }
+
+    // Exemple de resposta Json per a una crida Ajax
+    /**
+     * @Route("/user/Register/", methods={"POST"}, name="user_register")
+     */
+    public function Register(EntityManagerInterface $em, $user)
+    {
+        $newUser = new Usuaris();
+        return JsonResponse::create(['nom_var' => rand(5,100)]);
     }
 }
