@@ -64,6 +64,19 @@ class Productes
         return "/assets/images/products" . $this->getCategoria()->getImagesPath() . $this->id . "/" . $this->Imatges[0]->getArxiu();
     }
 
+    public function getArxiusImatges() : array
+    {
+        $arr = array();
+
+        foreach ($this->Imatges as &$imatge)
+        {
+            $imgPath = "/assets/images/products" . $this->getCategoria()->getImagesPath() . $this->id . "/" . $imatge->getArxiu();
+            array_push($arr, $imgPath);
+        }
+
+        return $arr;
+    }
+
     public function enOferta()
     {
         if ($this->PreuOferta == null) return false;
@@ -146,6 +159,8 @@ class Productes
 
         return $this;
     }
+
+
 
     /**
      * @return Collection|Imatges[]
