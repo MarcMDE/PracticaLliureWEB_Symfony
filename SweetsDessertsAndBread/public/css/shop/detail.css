@@ -13,8 +13,9 @@
                 'imatge desc'
                 'imatge compra';
         grid-gap: 10px;
-        background-color: #F7819F;
+        background-color: white;
         padding: 10px;
+        box-shadow: 2px 2px 10px #666;;
     }
 }
 @media (max-width: 800px){
@@ -31,7 +32,7 @@
     }
 }
 .pg-container > div {
-    background-color: rgba(255, 255, 255, 0.8);
+   /* background-color: rgba(255, 255, 255, 0.8);*/
     padding: 20px 0;
     vertical-align: center;
 }
@@ -48,3 +49,7 @@
 .pg-container .pg-nom{
     font-size: 35px;
 }
+
+
+
+
