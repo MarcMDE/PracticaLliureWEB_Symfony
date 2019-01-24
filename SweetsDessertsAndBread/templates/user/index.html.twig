@@ -36,16 +36,16 @@
 
                 <div class = "form-content">
                     <label class="w3-text-black"><b>Nom</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Nom" name="Nom">
+                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Nom" name="Nom" required>
 
                     <label class="w3-text-black"><b>Cognoms</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Cognoms" name="Cognoms">
+                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Cognoms" name="Cognoms" required>
 
                     <label class="w3-text-black"><b>Telèfon</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Telèfon" nome="Tel">
+                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Telèfon" nome="Tel" maxlength="9" required>
 
                     <label class="w3-text-black"><b>Mòbil</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Mòbil" name="Mobil">
+                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Mòbil" name="Mobil" required>
                 </div>
 
                 <br>
@@ -56,13 +56,13 @@
 
                 <div class="form-content">
                     <label class="w3-text-black"><b>Adreça</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Adreça" name="Adreca">
+                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Adreça" name="Adreca" required>
 
                     <label class="w3-text-black"><b>Ciutat/Poble</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Ciutat/Poble" name="CiPo">
+                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Ciutat/Poble" name="CiPo" required>
 
                     <label class="w3-text-black"><b>Codi Postal</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Codi Postal" name="CP">
+                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Codi Postal" name="CP" required>
 
 
                     <label class="w3-text-black"><b>País</b></label>
@@ -82,13 +82,18 @@
 
                 <div class="form-content">
                     <label class="w3-text-black"><b>E-Mail</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="E-Mail" name="mail">
+                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="E-Mail" name="mail" required>
 
                     <label class="w3-text-black"><b>Contrassenya</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Contrassenya" name="contr">
+                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Contrassenya" name="contr" required>
 
                     <label class="w3-text-black"><b>Repeteix la contrassenya</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Repeteix la contrassenya" name="RepContr">
+                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Repeteix la contrassenya" name="RepContr" required>
+
+                    <label class ="w3-text-black"><b>Foto de perfil</b></label>
+                    <br>
+                    <label for="Foto" class="w3-button">Seleccionar imatge</label>
+                    <input type="file" style="display: none" accept="image/*" name="Foto" id="Foto">
 
                 </div>
 
@@ -115,7 +120,7 @@
 
                 <br>
 
-                <button class="w3-btn w3-pale-red w3-round">Registrar-se</button>
+                <button class="w3-btn w3-pale-red w3-round RelleuBut">Registrar-se</button>
 
                 <br>
                 <br>
@@ -142,7 +147,7 @@
 
                 <br>
 
-                <button class="w3-btn w3-pale-red w3-round">Entrar</button>
+                <button class="w3-btn w3-pale-red w3-round RelleuBut">Entrar</button>
                 <br>
                 <br>
 

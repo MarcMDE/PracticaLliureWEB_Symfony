@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/shop/detail.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/shop/detail.css') }}" xmlns="http://www.w3.org/1999/html">
 {% endblock %}
 
 {% block content %}
@@ -55,7 +55,7 @@
         </div>
         <div class="pg-desc">{{ producte.Descripcio }} </div>
         <div class="pg-compra">
-            COMPRA
+            <button class = "w3-btn w3-pale-red w3-round RelleuBut"> Afegir al cistell </button>
         </div>
     </section>
 
