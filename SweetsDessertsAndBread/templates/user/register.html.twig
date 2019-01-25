@@ -8,19 +8,23 @@
 {% endblock %}
 
 {% block content %}
-    <header class="w3-center">
-        Has completat el registre correctament!
-    </header>
+        <header class="w3-center">
+            <div class="w3-panel w3-pale-red w3-round">
+                <h7>Has completat el registre correctament!</h7>
+            </div>
+        </header>
 
-    <div class="detallet">
-      <p>
-          Fes click al següent enllaç per activar i entrar al teu nou compte!
-          <a href="{{ path('user_index', {login:1}) }}">LOG-IN</a>
-      </p>
-    </div>
+        <div class="detallet">
+            <p>
+                Fes click al següent enllaç per activar i entrar al teu nou compte!
+                <a href="{{ path('user_index', {login:1}) }}">LOG-IN</a>
+            </p>
+        </div>
+
 
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }} {# Afegeix el contingut del block del parent, així, podem afegir scripts concrets només per aquesta template sense sobrescriure els del pare#}
+    <script src="{{ asset('js/user/register.js') }}"></script>
 {% endblock %}
