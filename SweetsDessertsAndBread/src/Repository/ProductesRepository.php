@@ -37,7 +37,8 @@ class ProductesRepository extends ServiceEntityRepository
     public function findActiveByCategoryId($id)
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.Categoria.id = id')
+            ->andWhere('p.Categoria = :id')
+            ->setParameter('id', $id)
             ->orderBy('p.Nom', 'ASC')
             ->getQuery()
             ->getResult();
