@@ -2,7 +2,8 @@
 
 {% block stylesheets %}
 
-    {{ parent()}}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/user/register.css') }}">
 
 {% endblock %}
 
@@ -14,7 +15,7 @@
     <div class="detallet">
       <p>
           Fes click al següent enllaç per activar i entrar al teu nou compte!
-          <a href="{{ path('user_index') }}">LOG-IN</a>
+          <a href="{{ path('user_index', {login:1}) }}">LOG-IN</a>
       </p>
     </div>
 
