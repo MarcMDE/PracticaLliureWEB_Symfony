@@ -31,6 +31,18 @@ class ProductesRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * @return Productes[] Returns an array of Productes objects
+     */
+    public function findActiveByCategoryId($id)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.Categoria.id = id')
+            ->orderBy('p.Nom', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
     public function  findActiveBy($id)
     {
         return $this->findOneBy(['id' => $id, 'Actiu' => true]);

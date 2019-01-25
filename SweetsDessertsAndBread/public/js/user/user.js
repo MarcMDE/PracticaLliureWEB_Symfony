@@ -1,13 +1,3 @@
-$(function(){
-    $("#EntrarTab").addClass("w3-white");
-
-    Swal.fire(
-        'Good job!',
-        'You clicked the button!',
-        'success'
-    )
-})
-
 function openUsuari(evt, userName)
 {
     var i, x, tablinks;

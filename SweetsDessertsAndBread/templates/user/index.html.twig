@@ -18,11 +18,11 @@
 <div class ="w3-card-4 w3-white userlog">
 
     <div class="w3-light-grey w3-text-gray" >
-        <button id="EntrarTab" class="w3-bar-item w3-button tablink" onclick="openUsuari(event, 'Entrar')">Entrar</button>
-        <button id="RegstreTab" class="w3-bar-item w3-button tablink" onclick="openUsuari(event, 'Registre')">Registrar-se</button>
+        <button id="EntrarTab" class="w3-bar-item w3-button tablink {% if login == 1 %} w3-white {% endif %}" onclick="openUsuari(event, 'Entrar')">Entrar</button>
+        <button id="RegstreTab" class="w3-bar-item w3-button tablink {% if login == 0 %} w3-white {% endif %}" onclick="openUsuari(event, 'Registre')">Registrar-se</button>
     </div>
 
-    <div id="Registre" class="usuari" style="display:none">
+    <div id="Registre" class="usuari" {% if login == 1 %} style="display:none" {% endif %}>
 
          <br>
 
@@ -121,7 +121,7 @@
         </div>
     </div>
 
-    <div id="Entrar" class="usuari">
+    <div id="Entrar" class="usuari" {% if login == 0 %} style="display:none" {% endif %}>
 
         <br>
 

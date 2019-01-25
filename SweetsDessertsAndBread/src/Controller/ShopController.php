@@ -17,10 +17,11 @@ use Symfony\Component\HttpFoundation\Response;
 class ShopController extends AbstractController
 {
     /**
-     * @Route("/shop/", name="shop_index")
+     * @Route("/shop/{id}", name="shop_index")
      */
-    public function Index()
+    public function Index($id)
     {
+        // id = ID Catergoria
         $rep = $this
             ->getDoctrine()
             ->getRepository(Categories::class);
@@ -31,7 +32,14 @@ class ShopController extends AbstractController
             ->getDoctrine()
             ->getRepository(Productes::class);
 
-        $productes = $rep->findActive();
+        if ($id == -1)
+        {
+            $productes = $rep->findActive();
+        }
+        else
+        {
+            $productes = $rep->findActiveByCategoryId($id);
+        }
 
         return $this->render('shop/index.html.twig', [
             'title' => "Tots els productes",

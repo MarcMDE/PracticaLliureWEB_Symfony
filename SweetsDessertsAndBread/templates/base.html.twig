@@ -25,7 +25,7 @@
 
             <div class="w3-bar w3-border w3-white">
                 <div class="w3-bar-item">
-                    <a href="{{ path('shop_index') }}">
+                    <a href="{{ path('shop_index', {id:-1}) }}">
                         <img id="logo" src="{{ asset('assets/images/SweetsDesserts&BreadIndividualPetit.png') }}"/>
                     </a>
                 </div>
@@ -33,7 +33,7 @@
                 <div class ="w3-bar-item w3-dropdown-hover navbar-item">
                     <button class="w3-button navbar-button">PRODUCTES</button>
                     <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                        <a href="{{ path('shop_index') }}" class="w3-bar-item w3-button">Tots</a>
+                        <a href="{{ path('shop_index', {id:-1}) }}" class="w3-bar-item w3-button">Tots</a>
                         <a href="#" class="w3-bar-item w3-button">En promoció</a>
                         <a href="#" class="w3-bar-item w3-button">De Temporada</a>
                     </div>
@@ -41,7 +41,8 @@
 
                 {% for categoria in categories %}
                     <div class ="w3-bar-item navbar-item">
-                        <button class="w3-button navbar-button tablinks" onclick="openCategory(event, '{{ categoria.Nom }}')">{{ categoria.Nom }}</button>
+                      {#<button class="w3-button navbar-button tablinks" onclick="openCategory(event, '{{ categoria.Nom }}')">{{ categoria.Nom }}</button>#}
+                        <a class="w3-button navbar-button tablinks" href="{{ path('shop_index', {id:categoria.id}) }}">{{ categoria.Nom }}</a>
                     </div>
                 {% endfor %}
                 <div class = "w3-bar-item w3-dropdown-hover navbar-item w3-right">
@@ -59,8 +60,8 @@
                 <div class ="w3-bar-item w3-dropdown-hover navbar-item w3-right">
                     <button class="w3-button navbar-button"><i class="fas fa-user-circle fa-2x"></i></button>
                     <div class="w3-dropdown-content w3-bar-block w3-card-4 dropdown-content-right">
-                        <a href="{{ path('user_index') }}" class="w3-bar-item w3-button">Registre't</a>
-                        <a href={{ path('user_index') }}" class="w3-bar-item w3-button">Inicia sessió</a>
+                        <a href="{{ path('user_index', {login:0}) }}" class="w3-bar-item w3-button">Registre't</a>
+                        <a href="{{ path('user_index', {login:1}) }}" class="w3-bar-item w3-button">Inicia sessió</a>
                     </div>
                 </div>
             </div>

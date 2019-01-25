@@ -20,9 +20,9 @@ use Symfony\Component\HttpFoundation\Request;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/user/", name="user_index")
+     * @Route("/user/{login}", name="user_index")
      */
-    public function Index()
+    public function Index($login)
     {
         $rep = $this
                 ->getDoctrine()
@@ -32,7 +32,8 @@ class UserController extends AbstractController
 
 
         return $this->render('user/index.html.twig', [
-            'categories' => $categories
+            'categories' => $categories,
+            'login' => $login
 
         ]);
     }
