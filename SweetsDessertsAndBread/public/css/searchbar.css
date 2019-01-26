@@ -1,0 +1,22 @@
+.buscador input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #F7819F;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #FFE4E1;
+   /* background-image: url('searchicon.png');*/
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.8s ease-in-out;
+    transition: width 0.8s ease-in-out;
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    max-width: 500px;
+}
+
+.buscador input[type=text]:focus {
+    width: 100%;
+}

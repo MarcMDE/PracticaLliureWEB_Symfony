@@ -3,6 +3,7 @@
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/shop/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/searchbar.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -27,6 +28,11 @@
             </div>
         {% endfor %}
     </div>
+
+    <div class = "buscador">
+        <input type="text" name="search" placeholder="Buscar...">
+    </div>
+
 
 {#
     <div>Generate URL: <a href="{{ path('shop_index') }}">SHOP INDEX</a> </div>
