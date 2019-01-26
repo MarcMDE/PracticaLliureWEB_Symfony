@@ -101,16 +101,16 @@ class ShopController extends AbstractController
 
         $categories = $rep->findAllNotEmpty();
 
-        $rep = $this
+       /* $rep = $this
             ->getDoctrine()
-            ->getRepository(Productes::class);
+            ->getRepository(Productes::class);*/
 
-        $producte = $rep->findActiveBy($id);
+       /* $producte = $rep->findActiveBy($id); */
 
         return $this->render('shop/bag.html.twig', [
             'id' => $id,
             'categories' => $categories,
-            'producte' => $producte
+            'producte' => 1
         ]);
     }
 

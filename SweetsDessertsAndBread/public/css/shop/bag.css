@@ -1,1 +1,29 @@
+.form-content{
+    margin-left: 20px;
+    font-size: 17px;
+}
+
+.form-content input{
+    width: 300px;
+}
+
+.comprar{
+    float: right;
+}
+
+.dadesTG{
+    width: 400px;
+    margin-left: 10px;
+
+}
+
+.dadesTG input, dadesTG label{
+    margin-left: 10px;
+}
+
+.tarjeta{
+    width: 500px;
+    margin-left: 16px;
+
+}
 

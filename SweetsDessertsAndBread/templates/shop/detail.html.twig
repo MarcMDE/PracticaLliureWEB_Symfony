@@ -66,16 +66,23 @@
             {% else %}
                 <div>{{ producte.preu|number_format(2, ',') }} €</div>
             {% endif %}
-        </div>
-        <div class="pg-desc">{{ producte.Descripcio }} </div>
-        <div class="pg-compra">
-            <button class = "w3-btn w3-pale-red w3-round RelleuBut"> Afegir al cistell </button>
-            <br>
-            <br>
 
+        </div>
+
+
+        <div class="pg-desc">{{ producte.Descripcio }} </div>
+
+        <div class="pg-compra">
             <div class = "quantiatP"> Quants ens vols?
                 <input type="number" min="1">
             </div>
+
+            <br>
+            <br>
+
+            <button class = "w3-btn w3-pale-red w3-round RelleuBut"> Afegir al cistell </button>
+            <br>
+            <br>
         </div>
     </section>
 

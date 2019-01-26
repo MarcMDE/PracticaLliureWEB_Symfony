@@ -9,7 +9,9 @@
 
     <div class="w3-container">
         <h2>Cistell de Compra:</h2>
+        <button class="w3-btn w3-pale-red w3-round comprar RelleuBut">COMPRAR</button>
         <p>Per eliminar el producte, clica a la "x":</p>
+
         <ul class="w3-ul w3-card-4">
 
             {# Mirar quina es la manera de posar els productes seleccionats anteriorment #}
@@ -19,6 +21,46 @@
             <li class="w3-display-container">Bastonets <span onclick="this.parentElement.style.display='none'" class="w3-button w3-transparent w3-display-right">&times;</span></li>
         </ul>
     </div>
+
+    <br>
+
+    <div class="w3-container w3-card-4 w3-white tarjeta">
+
+        <form action="/action_page.php"> <!-- Posar la pagina que hem d'anar quan cliquem boto registre -->
+
+            <br>
+
+            <div class="w3-container w3-pale-red w3-round ">
+                <h4>Dades Targeta</h4>
+            </div>
+
+            <div class = "form-content dadesTG">
+                <label class="w3-text-black"><b>Nom</b></label>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[A-Za-z]" placeholder="Nom" name="NomC">
+
+                <label class="w3-text-black"><b>Cognoms</b></label>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[A-Za-z]" placeholder="Cognoms" name="CognomC">
+
+                <label class="w3-text-black"><b>Número de la Targeta</b></label>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[0-9]{16}" minlength="16" maxlength="16" placeholder="**** **** **** ****" name="NumTarjetaC">
+
+                <label class="w3-text-black"><b>Data Caducitat</b></label>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[0-9]{2}/[0-9]{2}" placeholder="03/16" name="DataCaducitatC">
+
+                <label class="w3-text-black"><b>CVV</b></label>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[0-9]{3}"  minlength="3" maxlength="3" placeholder="XXX" name="CVVc">
+            </div>
+
+            <br>
+
+        </form>
+    </div>
+
+    <br>
+
+
+
+
 
 {% endblock %}
 

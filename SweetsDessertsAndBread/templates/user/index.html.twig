@@ -36,13 +36,13 @@
 
                 <div class = "form-content">
                     <label class="w3-text-black"><b>Nom</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Nom" name="Nom" id="Nom" required>
+                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[A-Za-z]" placeholder="Nom" name="Nom" id="Nom" required>
 
                     <label class="w3-text-black"><b>Cognoms</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Cognoms" name="Cognoms" required>
+                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[A-Za-z]" placeholder="Cognoms" name="Cognoms" required>
 
                     <label class="w3-text-black"><b>Telèfon</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Telèfon" name="Telf" maxlength="9" minlength="9" required>
+                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[0-9]{9}" placeholder="Telèfon" name="Telf" maxlength="9" minlength="9" required>
                 </div>
 
                 <br>
@@ -59,7 +59,7 @@
                     <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Ciutat/Poble" name="Localitat" required>
 
                     <label class="w3-text-black"><b>Codi Postal</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" placeholder="Codi Postal" name="CP" maxlength="5" minlength="5" required>
+                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[0-9]{5}" placeholder="Codi Postal" name="CP" maxlength="5" minlength="5" required>
 
 
                     <label class="w3-text-black"><b>País</b></label>
@@ -91,7 +91,6 @@
                     <br>
                     <label for="Foto" class="w3-button">Seleccionar imatge</label>
                     <input type="file" style="display: none" accept="image/*" name="Foto" id="Foto">
-
                 </div>
 
                 <br>
@@ -121,6 +120,7 @@
         </div>
     </div>
 
+
     <div id="Entrar" class="usuari" {% if login == 0 %} style="display:none" {% endif %}>
 
         <br>
@@ -144,10 +144,15 @@
                 <br>
 
              </form>
-
+        </div>
     </div>
 
 </div>
+
+
+
+
+
 
 
 
