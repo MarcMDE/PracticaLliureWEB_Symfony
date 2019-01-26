@@ -54,9 +54,21 @@ class Productes
      */
     private $Imatges;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Temporades", inversedBy="Productes")
+     */
+    private $Temporada;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ComandaProductes", mappedBy="Producte", orphanRemoval=true)
+     */
+    private $ComandaProductes;
+
     public function __construct()
     {
         $this->Imatges = new ArrayCollection();
+        $this->Comandes = new ArrayCollection();
+        $this->ComandaProductes = new ArrayCollection();
     }
 
     public function getArxiuImatgePrincipal()
@@ -187,6 +199,49 @@ class Productes
             // set the owning side to null (unless already changed)
             if ($imatge->getProducte() === $this) {
                 $imatge->setProducte(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getTemporada(): ?Temporades
+    {
+        return $this->Temporada;
+    }
+
+    public function setTemporada(?Temporades $Temporada): self
+    {
+        $this->Temporada = $Temporada;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ComandaProductes[]
+     */
+    public function getComandaProductes(): Collection
+    {
+        return $this->ComandaProductes;
+    }
+
+    public function addComandaProducte(ComandaProductes $comandaProducte): self
+    {
+        if (!$this->ComandaProductes->contains($comandaProducte)) {
+            $this->ComandaProductes[] = $comandaProducte;
+            $comandaProducte->setProducte($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComandaProducte(ComandaProductes $comandaProducte): self
+    {
+        if ($this->ComandaProductes->contains($comandaProducte)) {
+            $this->ComandaProductes->removeElement($comandaProducte);
+            // set the owning side to null (unless already changed)
+            if ($comandaProducte->getProducte() === $this) {
+                $comandaProducte->setProducte(null);
             }
         }
 
