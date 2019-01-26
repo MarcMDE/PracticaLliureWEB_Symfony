@@ -26,6 +26,15 @@ class ShopController extends AbstractController
             ->getDoctrine()
             ->getRepository(Categories::class);
 
+        if ($id == -1)
+        {
+            $nomCategoriaActual = "Tots els productes";
+        }
+        else
+        {
+            $nomCategoriaActual = $rep->find($id)->getNom();
+        }
+
         $categories = $rep->findAllNotEmpty();
 
         $rep = $this
@@ -42,7 +51,7 @@ class ShopController extends AbstractController
         }
 
         return $this->render('shop/index.html.twig', [
-            'title' => "Tots els productes",
+            'title' => $nomCategoriaActual,
             'categories' => $categories,
             'productes' => $productes
         ]);
