@@ -68,6 +68,8 @@ class UserController extends AbstractController
         $encodedPsw = $encoder->encodePassword($newUser, $formData['Psw']);
         $newUser->setPassword($encodedPsw);
 
+        $newUser->setRoles(["ROLE_USER"]);
+
         $em->persist($newUser);
         $em->flush();
 
