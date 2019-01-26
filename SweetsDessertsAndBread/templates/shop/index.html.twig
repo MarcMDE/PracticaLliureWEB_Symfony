@@ -14,6 +14,7 @@
     <div class="flex-container products-flexbox">
         {% for producte in productes %}
             <div class="products-flexbox-item">
+                <input hidden value="{{ producte.Nom }}">
                 <a href="{{ path('shop_detail', {id:producte.id}) }}">
                     <img src="{{ asset(producte.getArxiuImatgePrincipal()) }}" class="w3-border" alt="Producte">
                     <div class="producte-data">
@@ -30,7 +31,7 @@
     </div>
 
     <div class = "buscador">
-        <input type="text" name="search" placeholder="Buscar...">
+        <input type="text" name="search" placeholder="Buscar..." onchange="onSearch(this)">
     </div>
 
 
@@ -47,4 +48,5 @@
 {% block javascripts %}
 {{ parent() }} {# Afegeix el contingut del block del parent, així, podem afegir scripts concrets només per aquesta template sense sobrescriure els del pare#}
     <script src="{{ asset('js/example.js') }}"></script>
+    <script src="{{ asset('js/shop/index.js') }}"></script>
 {% endblock %}
