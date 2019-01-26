@@ -15,7 +15,7 @@ function onComprar(){
     {
 
         Swal.fire({
-            title: 'Enhorabona?',
+            title: 'Enhorabona!',
             text: "Has realitzat la teva compra correctament!",
             type: 'success',
             confirmButtonColor: '#F7819F',
@@ -28,7 +28,7 @@ function onComprar(){
    else{
         Swal.fire({
             title: 'Oooh!',
-            text: "Has d'omplir el formulari amb les dades de la tarjeta per a poder realitzar la compra!",
+            text: "Has d'omplir el formulari amb les dades de la targeta per a poder realitzar la compra!",
             type: 'error',
             confirmButtonColor: '#F7819F',
             confirmButtonText: "D'acord"
