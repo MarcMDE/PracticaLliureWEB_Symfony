@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -87,6 +89,16 @@ class Usuaris implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $Pais;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comandes", mappedBy="Usuari")
+     */
+    private $Comandes;
+
+    public function __construct()
+    {
+        $this->Comandes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -294,6 +306,37 @@ class Usuaris implements UserInterface
     public function setPais(string $Pais): self
     {
         $this->Pais = $Pais;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comandes[]
+     */
+    public function getComandes(): Collection
+    {
+        return $this->Comandes;
+    }
+
+    public function addComande(Comandes $comande): self
+    {
+        if (!$this->Comandes->contains($comande)) {
+            $this->Comandes[] = $comande;
+            $comande->setUsuari($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComande(Comandes $comande): self
+    {
+        if ($this->Comandes->contains($comande)) {
+            $this->Comandes->removeElement($comande);
+            // set the owning side to null (unless already changed)
+            if ($comande->getUsuari() === $this) {
+                $comande->setUsuari(null);
+            }
+        }
 
         return $this;
     }

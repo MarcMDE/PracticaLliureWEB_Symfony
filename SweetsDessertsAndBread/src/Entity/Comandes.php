@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -40,6 +42,22 @@ class Comandes
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $DataRecollida;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Usuaris", inversedBy="Comandes")
+     */
+    private $Usuari;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ComandaProductes", mappedBy="Comanda", orphanRemoval=true)
+     */
+    private $ComandaProductes;
+
+    public function __construct()
+    {
+        $this->Productes = new ArrayCollection();
+        $this->ComandaProductes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -102,6 +120,49 @@ class Comandes
     public function setDataRecollida(?\DateTimeInterface $DataRecollida): self
     {
         $this->DataRecollida = $DataRecollida;
+
+        return $this;
+    }
+
+    public function getUsuari(): ?Usuaris
+    {
+        return $this->Usuari;
+    }
+
+    public function setUsuari(?Usuaris $Usuari): self
+    {
+        $this->Usuari = $Usuari;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ComandaProductes[]
+     */
+    public function getComandaProductes(): Collection
+    {
+        return $this->ComandaProductes;
+    }
+
+    public function addComandaProducte(ComandaProductes $comandaProducte): self
+    {
+        if (!$this->ComandaProductes->contains($comandaProducte)) {
+            $this->ComandaProductes[] = $comandaProducte;
+            $comandaProducte->setComanda($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComandaProducte(ComandaProductes $comandaProducte): self
+    {
+        if ($this->ComandaProductes->contains($comandaProducte)) {
+            $this->ComandaProductes->removeElement($comandaProducte);
+            // set the owning side to null (unless already changed)
+            if ($comandaProducte->getComanda() === $this) {
+                $comandaProducte->setComanda(null);
+            }
+        }
 
         return $this;
     }

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -40,6 +42,16 @@ class Temporades
      * @ORM\Column(type="string", length=255)
      */
     private $Nom;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Productes", mappedBy="Temporada")
+     */
+    private $Productes;
+
+    public function __construct()
+    {
+        $this->Productes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -102,6 +114,37 @@ class Temporades
     public function setNom(string $Nom): self
     {
         $this->Nom = $Nom;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Productes[]
+     */
+    public function getProductes(): Collection
+    {
+        return $this->Productes;
+    }
+
+    public function addProducte(Productes $producte): self
+    {
+        if (!$this->Productes->contains($producte)) {
+            $this->Productes[] = $producte;
+            $producte->setTemporada($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProducte(Productes $producte): self
+    {
+        if ($this->Productes->contains($producte)) {
+            $this->Productes->removeElement($producte);
+            // set the owning side to null (unless already changed)
+            if ($producte->getTemporada() === $this) {
+                $producte->setTemporada(null);
+            }
+        }
 
         return $this;
     }
