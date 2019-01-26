@@ -16,13 +16,14 @@ use App\Entity\Categories;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends AbstractController
 {
     /**
-     * @Route("/user/{login}", name="user_index")
+     * @Route("/user/sign/{login}", name="user_sign")
      */
-    public function Index($login)
+    public function Sign($login)
     {
         $rep = $this
                 ->getDoctrine()
@@ -38,12 +39,10 @@ class UserController extends AbstractController
         ]);
     }
 
-    // Exemple de resposta Json per a una crida Ajax
     /**
      * @Route("/user/Register/", methods={"POST"}, name="user_register")
      */
-    //public function Register(EntityManagerInterface $em, $Nom, $Cognoms, $Telf, $Adreca, $Localitat, $CP, $Pais, $Email, $Psw, $Foto, $RebreMails)
-    public function Register(EntityManagerInterface $em, Request $request)
+    public function Register(EntityManagerInterface $em, Request $request, UserPasswordEncoderInterface $encoder)
     {
         // TODO: Guardar foto a servidor i guardar nom foto a new User
 
@@ -58,7 +57,6 @@ class UserController extends AbstractController
         $newUser->setCodiPostal($formData['CP']);
         $newUser->setPais($formData['Pais']);
         $newUser->setEmail($formData['Email']);
-        $newUser->setPassword($formData['Psw']);
         $newUser->setRebreMails($formData['RebreMails']);
 
         $time = new \DateTime();
@@ -66,6 +64,9 @@ class UserController extends AbstractController
 
         $newUser->setDataCreacio($time);
         $newUser->setEstat(0);
+
+        $encodedPsw = $encoder->encodePassword($newUser, $formData['Psw']);
+        $newUser->setPassword($encodedPsw);
 
         $em->persist($newUser);
         $em->flush();

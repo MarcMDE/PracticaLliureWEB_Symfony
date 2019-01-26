@@ -41,6 +41,11 @@ class Comandes
      */
     private $DataRecollida;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Usuaris", inversedBy="Comandes")
+     */
+    private $Usuari;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +107,18 @@ class Comandes
     public function setDataRecollida(?\DateTimeInterface $DataRecollida): self
     {
         $this->DataRecollida = $DataRecollida;
+
+        return $this;
+    }
+
+    public function getUsuari(): ?Usuaris
+    {
+        return $this->Usuari;
+    }
+
+    public function setUsuari(?Usuaris $Usuari): self
+    {
+        $this->Usuari = $Usuari;
 
         return $this;
     }
