@@ -1,6 +1,6 @@
 h1, h2, h3{
     font-weight: bolder;
-    text-decoration: underline overline wavy lightpink;
+    /*text-decoration: underline overline wavy lightpink;*/
     font-family: 'Coming Soon', cursive, Arial;
 }
 
@@ -32,6 +32,10 @@ button:focus,input:focus
 
 .RelleuBut{
     box-shadow: 2px 2px 10px #666;
+}
+
+.titolDecorat{
+    text-decoration: underline overline wavy lightpink;
 }
 
 

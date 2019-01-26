@@ -8,8 +8,9 @@
 {% block content %}
 
     <div class="w3-container">
-        <h2>Cistell de Compra:</h2>
-        <button class="w3-btn w3-pale-red w3-round comprar RelleuBut">COMPRAR</button>
+        <div class = "titolDecorat"> <h2>Cistell de Compra:</h2> </div>
+        <button class="w3-btn w3-pale-red w3-round comprar RelleuBut Com" onclick="onComprar()">COMPRAR</button>
+        <button class="w3-btn w3-pale-blue w3-round comprar RelleuBut BC">Buidar Cistell</button>
         <p>Per eliminar el producte, clica a la "x":</p>
 
         <ul class="w3-ul w3-card-4">
@@ -64,9 +65,8 @@
 
 {% endblock %}
 
-{#
+
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('js/shop/bag.js') }}"></script> S'HA DE CREAR AQUEST JS
+    <script src="{{ asset('js/shop/bag.js') }}"></script>
 {% endblock %}
-#}
