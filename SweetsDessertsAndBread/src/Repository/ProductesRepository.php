@@ -49,6 +49,18 @@ class ProductesRepository extends ServiceEntityRepository
         return $this->findOneBy(['id' => $id, 'Actiu' => true]);
     }
 
+    /**
+     * @return Productes[] Returns an array of Productes objects
+     */
+    public function findEnPromocio($id)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.PreuOferta != 0')
+            ->orderBy('p.Nom', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Productes[] Returns an array of Productes objects
     //  */

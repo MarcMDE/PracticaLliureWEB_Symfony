@@ -38,6 +38,26 @@ button:focus,input:focus
     text-decoration: underline overline wavy lightpink;
 }
 
+.hola{
+padding-top: 20px;
+}
+
+.cistellF{
+    background-image: url('../assets/images/Collage1.png');
+    background-repeat: repeat;
+    background-size: 183px 137px;
+    z-index: 3;
+}
+
+.preuT{
+    border: none;
+    height: 2px;
+    background-color: #111111;
+}
+
+.preuNum{
+    font-size: 25px;
+}
 
 
 
