@@ -15,8 +15,8 @@ function onAplyEdit()
 
     console.log("iniciar ajax");
     $.ajax({
-        method: 'POST',
-        url: '/user/aplyedit/',
+        method: 'post',
+        url: '/user/AplyEdit/',
         data: {
             NouNom: nom,
             NouCognoms: cognoms,

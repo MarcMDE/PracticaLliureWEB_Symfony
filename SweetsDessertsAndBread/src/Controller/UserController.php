@@ -140,7 +140,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user/aplyedit/", name="user_aplyedit", methods={"POST"})
+     * @Route("/user/AplyEdit/", methods={"POST"}, name="user_aplyedit")
      */
     public function AplyEdit(EntityManagerInterface $em, Request $request)
     {
