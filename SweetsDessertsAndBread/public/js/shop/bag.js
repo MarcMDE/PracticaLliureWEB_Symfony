@@ -29,15 +29,46 @@ function onComprar(){
 
 function onBuidarCistell()
 {
+    Swal.fire({
+        title: 'Estàs segur que vols buidar el cistell?',
+        text: "No podràs tirar enderrera!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#F7819F',
+        cancelButtonColor: '#800000',
+        confirmButtonText: 'Si, buidar!',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                    method: 'post',
+                    url: '/shop/BuidarCistell/'
+                }
+            ).done(function(data){
+
+                if (data.correct == true)
+                {
+                    $("#dadesTarjeta").html("");
+                    $("#bagContainer").html("");
+                    $("#cistellBuit").show();
+                    actualitzaCistell(data.cistell, data.cistellTotal);
+                }
+                else
+                {
+                    // TODO: MOSTRAR MISSATGE ERROR
+                }
+            });
+        }
+    })
+
+function onEliminarProducte(){
     $.ajax({
-        method: 'post',
-        url: '/shop/BuidarCistell/'
+            method: 'post',
         }
     ).done(function(data){
 
         if (data.correct == true)
         {
-            $("#dadesTarjeta").html("");
             $("#bagContainer").html("");
             $("#cistellBuit").show();
             actualitzaCistell(data.cistell, data.cistellTotal);
@@ -47,6 +78,8 @@ function onBuidarCistell()
             // TODO: MOSTRAR MISSATGE ERROR
         }
     });
+}
+
 }
 
 
