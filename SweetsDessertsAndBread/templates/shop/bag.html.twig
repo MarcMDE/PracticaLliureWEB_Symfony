@@ -7,7 +7,14 @@
 
 {% block content %}
     {% if ((cistell|length) == 0) %}
-        <p><b>Afegeix algún producte al cistell!</b></p>
+        <div class = "w3-center titolDecorat"> <h2>Cistell de Compra:</h2> </div>
+        <br>
+        <p class="w3-container w3-panel w3-pale-red w3-round w3-center"><b>Afegeix algún producte al cistell!</b></p>
+        <p class="w3-center">
+            Fes click al següent enllaç per tornar a la botiga!
+            <a href="{{ path('shop_index', {id:-1}) }}">TORNAR A LA BOTIGA</a>
+        </p>
+
     {% else %}
     <div class="w3-container">
         <div class = "w3-center titolDecorat"> <h2>Cistell de Compra:</h2> </div>
