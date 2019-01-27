@@ -19,11 +19,23 @@ function onAfegiarAlCistell()
         if (data.correct == true)
         {
             actualitzaCistell(data.cistell, data.cistellTotal);
+            Swal.fire({
+                title: 'Enhorabona!',
+                text: "Has afegit el producte al cistell!",
+                type: 'success',
+                confirmButtonColor: '#F7819F',
+                confirmButtonText: "D'acord"
+            })
         }
         else
         {
-            console.log("AJAX ERROR");
-            // TODO: MOSTRAR MISSATGE ERROR
+            Swal.fire({
+                title: 'Oooh!',
+                text: "No s'ha pogut afegir el producte!",
+                type: 'error',
+                confirmButtonColor: '#F7819F',
+                confirmButtonText: "D'acord"
+            })
         }
     });
 }

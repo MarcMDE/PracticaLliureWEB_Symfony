@@ -33,7 +33,7 @@
         <ul class="w3-ul w3-card-4" id="bagItems">
 
             {% for i in range(0, (cistell|length)-1) %}
-                <li class="w3-display-container">{{ cistell[i] }} <span onclick="this.parentElement.style.display='none'" class="w3-button w3-transparent w3-display-right">&times;</span></li>
+                <li class="w3-display-container">{{ cistell[i] }} <span onclick="onEliminarProducte()" class="w3-button w3-transparent w3-display-right">&times;</span></li>
                 <input hidden id="pid_{{ cistellIds[i] }}" value="cistellIds[i]">
             {% endfor %}
         </ul>
