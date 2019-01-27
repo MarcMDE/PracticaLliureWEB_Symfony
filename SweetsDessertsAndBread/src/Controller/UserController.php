@@ -49,6 +49,14 @@ class UserController extends AbstractController
                 ->getDoctrine()
                 ->getRepository(Categories::class);
 
+        $cistellMostraArr = $this->session->get('cistellMostra', []);
+        $preuTotal = $this->session->get('cistellPreu', 0);
+        $cistellIndexArr = array();
+        foreach ($cistellMostraArr as $text)
+        {
+            array_push($cistellIndexArr, $text);
+        }
+
         $categories = $rep->findAllNotEmpty();
 
         // get the login error if there is one
@@ -60,7 +68,9 @@ class UserController extends AbstractController
             'categories' => $categories,
             'login' => $login,
             'last_username' => $lastUsername,
-            'error' => $error
+            'error' => $error,
+            'cistell' => $cistellIndexArr,
+            'cistellTotal' => $preuTotal
         ]);
     }
 
@@ -102,10 +112,20 @@ class UserController extends AbstractController
             ->getDoctrine()
             ->getRepository(Categories::class);
 
+        $cistellMostraArr = $this->session->get('cistellMostra', []);
+        $preuTotal = $this->session->get('cistellPreu', 0);
+        $cistellIndexArr = array();
+        foreach ($cistellMostraArr as $text)
+        {
+            array_push($cistellIndexArr, $text);
+        }
+
         $categories = $rep->findAllNotEmpty();
 
         return $this->render('user/register.html.twig', [
-            'categories' => $categories
+            'categories' => $categories,
+            'cistell' => $cistellIndexArr,
+            'cistellTotal' => $preuTotal
 
         ]);
     }
@@ -122,6 +142,14 @@ class UserController extends AbstractController
             ->getDoctrine()
             ->getRepository(Categories::class);
 
+        $cistellMostraArr = $this->session->get('cistellMostra', []);
+        $preuTotal = $this->session->get('cistellPreu', 0);
+        $cistellIndexArr = array();
+        foreach ($cistellMostraArr as $text)
+        {
+            array_push($cistellIndexArr, $text);
+        }
+
         $categories = $rep->findAllNotEmpty();
 
         return $this->render('user/edit.html.twig', [
@@ -135,7 +163,9 @@ class UserController extends AbstractController
             'Pais' => $user->getPais(),
             'Email' => $user->getEmail(),
             'Foto' => $user->getArxiuFoto(),
-            'RebreMail' => $user->getRebreMails()
+            'RebreMail' => $user->getRebreMails(),
+            'cistell' => $cistellIndexArr,
+            'cistellTotal' => $preuTotal
         ]);
     }
 
@@ -173,10 +203,20 @@ class UserController extends AbstractController
             ->getDoctrine()
             ->getRepository(Categories::class);
 
+        $cistellMostraArr = $this->session->get('cistellMostra', []);
+        $preuTotal = $this->session->get('cistellPreu', 0);
+        $cistellIndexArr = array();
+        foreach ($cistellMostraArr as $text)
+        {
+            array_push($cistellIndexArr, $text);
+        }
+
         $categories = $rep->findAllNotEmpty();
 
         return $this->render('user/comandes.html.twig', [
             'categories' => $categories,
+            'cistell' => $cistellIndexArr,
+            'cistellTotal' => $preuTotal
 
         ]);
     }
