@@ -252,4 +252,15 @@ class ShopController extends AbstractController
 
     }
 
+    /**
+     * @Route("/shop/BuidarCistell/", name="shop_buidarcistell", methods={"POST"})
+     */
+    public function BuidarCistell()
+    {
+        $this->session->remove('cistell');
+        $this->session->remove('cistellPreu');
+        $this->session->remove('cistellMostra');
+
+        return JsonResponse::create(['correct' => true, 'cistell' => array(), 'cistellTotal' => array()]);
+    }
 }
