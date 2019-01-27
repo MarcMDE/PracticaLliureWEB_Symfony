@@ -127,19 +127,27 @@
 
          <div class="w3-container">
 
-            <form action="/action_page.php"> <!-- Posar la pagina que hem d'anar quan cliquem boto registre -->
+             {% if error %}
+                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+             {% endif %}
+
+            <form method="post">
 
                 <div class = "form-content">
-                    <label class="w3-text-black"><b>Usuari</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" type="email" placeholder="ex.: raquel@mail.com" name="mailU">
+                    <label for="inputEmail" class="w3-text-black"><b>E-mail</b></label>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" placeholder="ex.: raquel@mail.com" required autofocus>
 
-                     <label class="w3-text-black"><b>Contrassenya</b></label>
-                    <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="password" placeholder="****" name="contrassenyaU">
+                    <label for="inputPassword" class="w3-text-black"><b>Contrassenya</b></label>
+                    <input type="password" name="password" id="inputPassword" class="form-control w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" placeholder="****" required>
+
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
                 </div>
 
                 <br>
 
-                <button class="w3-btn w3-pale-red w3-round RelleuBut">Entrar</button>
+                <button type="submit" class="btn btn-lg w3-btn w3-pale-red w3-round RelleuBut">Entrar</button>
                 <br>
                 <br>
 

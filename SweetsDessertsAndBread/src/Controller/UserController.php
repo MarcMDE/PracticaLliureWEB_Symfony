@@ -17,25 +17,42 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class UserController extends AbstractController
 {
     /**
      * @Route("/user/sign/{login}", name="user_sign")
      */
-    public function Sign($login)
+    public function Sign(AuthenticationUtils $authenticationUtils, $login): Response
     {
+        /*
+        if (login == 1)
+        {
+            // LOGIN
+        }
+        else
+        {
+            // REGISTER
+        }
+        */
+
         $rep = $this
                 ->getDoctrine()
                 ->getRepository(Categories::class);
 
-            $categories = $rep->findAllNotEmpty();
+        $categories = $rep->findAllNotEmpty();
 
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render('user/index.html.twig', [
             'categories' => $categories,
-            'login' => $login
-
+            'login' => $login,
+            'last_username' => $lastUsername,
+            'error' => $error
         ]);
     }
 
