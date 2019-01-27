@@ -142,21 +142,22 @@ class UserController extends AbstractController
     /**
      * @Route("/user/aplyedit/", name="user_aplyedit", methods={"POST"})
      */
-    public function AplyEdit(EntityManagerInterface $em, $NouNom, $NouCognoms, $NouTelefon, $NouAdreca, $NouCiutat_Poble, $NouCodiPostal, $NouPais, $NouEmail, $NouFoto, $NouRebreMail)
+    public function AplyEdit(EntityManagerInterface $em, Request $request)
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
         $user=$this->getUser();
 
-        $user->setNom($NouNom);
-        $user->setCognoms($NouCognoms);
-        $user->setTelefon($NouTelefon);
-        $user->setDireccio($NouAdreca);
-        $user->setLocalitat($NouCiutat_Poble);
-        $user->setCodiPostal($NouCodiPostal);
-        $user->setPais($NouPais);
-        $user->setEmail($NouEmail);
-        $user->setArxiuFoto($NouFoto);
-        $user->setRebreMails($NouRebreMail);
+        $formData = $request->request->all();
+
+        $user->setNom($formData['NouNom']);
+        $user->setCognoms($formData['NouCognoms']);
+        $user->setTelefon($formData['NouTelefon']);
+        $user->setDireccio($formData['NouAdreca']);
+        $user->setLocalitat($formData['NouCiutat_Poble']);
+        $user->setCodiPostal($formData['NouCodiPostal']);
+        $user->setPais($formData['NouPais']);
+        $user->setEmail($formData['NouEmail']);
+        $user->setRebreMails($formData['NouRebreMail']);
 
         $em->flush();
 
