@@ -13,11 +13,9 @@
 
     <ul class="w3-ul w3-card-4">
 
-        {# Mirar quina es la manera de posar els productes seleccionats anteriorment #}
-
-        <li class="comanda">Flam <span onclick="this.parentElement.style.display='none'"></span></li>
-        <li class="comanda">Galetes de Llimona <span onclick="this.parentElement.style.display='none'"></span></li>
-        <li class="comanda">Bastonets <span onclick="this.parentElement.style.display='none'"></span></li>
+        {% for comanda in comandes %}
+        <li class="comanda">{{ comanda }}</li>
+        {% endfor %}
     </ul>
 
 {% endblock %}

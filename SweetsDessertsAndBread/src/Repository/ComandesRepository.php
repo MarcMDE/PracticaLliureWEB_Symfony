@@ -19,23 +19,20 @@ class ComandesRepository extends ServiceEntityRepository
         parent::__construct($registry, Comandes::class);
     }
 
-    // /**
-    //  * @return Comandes[] Returns an array of Comandes objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+    * @return Comandes[] Returns an array of Comandes objects
+    */
+    public function findByUser($user)
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('c.Usuari = :user')
+            ->setParameter('user', $user)
             ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            ->setMaxResults(20)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
-
     /*
     public function findOneBySomeField($value): ?Comandes
     {

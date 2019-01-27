@@ -136,6 +136,18 @@ class Comandes
         return $this;
     }
 
+    public function getTotalComanda()
+    {
+        $total = 0;
+
+        foreach ($this->ComandaProductes as $prod)
+        {
+            $total += $prod->getPreu();
+        }
+
+        return $total;
+    }
+
     /**
      * @return Collection|ComandaProductes[]
      */

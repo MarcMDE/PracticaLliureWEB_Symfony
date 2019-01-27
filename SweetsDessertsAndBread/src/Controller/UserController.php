@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 use App\Entity\Productes;
+use App\Entity\Comandes;
 use App\Entity\Usuaris;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -199,9 +200,28 @@ class UserController extends AbstractController
      */
     public function Comandes()
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         $rep = $this
             ->getDoctrine()
             ->getRepository(Categories::class);
+
+        $repComandes = $this
+            ->getDoctrine()
+            ->getRepository(Comandes::class);
+
+        $user=$this->getUser();
+        $comandes = $repComandes->findByUser($user);
+
+        $arrComandes = array();
+        $i = 1;
+
+        foreach ($comandes as $c)
+        {
+            array_push($arrComandes, "Comanda " . $i . "   =>    Data creació: " . $c->getDataCreacio()->format('d-m-Y') . ";           Total: " . $c->getTotalComanda() . " €");
+            $i++;
+        }
+
 
         $cistellMostraArr = $this->session->get('cistellMostra', []);
         $preuTotal = $this->session->get('cistellPreu', 0);
@@ -216,7 +236,8 @@ class UserController extends AbstractController
         return $this->render('user/comandes.html.twig', [
             'categories' => $categories,
             'cistell' => $cistellIndexArr,
-            'cistellTotal' => $preuTotal
+            'cistellTotal' => $preuTotal,
+            'comandes' => $arrComandes
 
         ]);
     }
