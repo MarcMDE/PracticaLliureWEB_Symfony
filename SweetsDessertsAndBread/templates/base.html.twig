@@ -60,8 +60,19 @@
                 <div class ="w3-bar-item w3-dropdown-hover navbar-item w3-right">
                     <button class="w3-button navbar-button"><i class="fas fa-user-circle fa-2x"></i></button>
                     <div class="w3-dropdown-content w3-bar-block w3-card-4 dropdown-content-right">
-                        <a href="{{ path('user_sign', {login:0}) }}" class="w3-bar-item w3-button">Registra't</a>
-                        <a href="{{ path('user_sign', {login:1}) }}" class="w3-bar-item w3-button">Inicia sessió</a>
+                        {% if is_granted('ROLE_USER') %}
+                            <div>
+                                <b>Hola, {{ app.user.Nom }}!</b>
+                            </div>
+                            <a href="{{ path('user_edit') }}" class="w3-bar-item w3-button">Les meves comandes</a>
+                            <a href="{{ path('user_edit') }}" class="w3-bar-item w3-button">Editar el perfil</a>
+                            <a href="{{ path('app_logout') }}" class="w3-bar-item w3-button">Tancar sessió</a>
+                        {% else %}
+
+                            <a href="{{ path('user_sign', {login:0}) }}" class="w3-bar-item w3-button">Registra't</a>
+                            <a href="{{ path('user_sign', {login:1}) }}" class="w3-bar-item w3-button">Inicia sessió</a>
+
+                        {% endif %}
                     </div>
                 </div>
             </div>

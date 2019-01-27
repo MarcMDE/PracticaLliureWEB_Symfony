@@ -107,6 +107,8 @@ class UserController extends AbstractController
      */
     public function Edit()
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         $rep = $this
             ->getDoctrine()
             ->getRepository(Categories::class);

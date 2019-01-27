@@ -15,6 +15,10 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            logout:
+                path: app_logout
+                target: /shop/shop/-1
+
             anonymous: true
 
             guard:
