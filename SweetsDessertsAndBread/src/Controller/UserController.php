@@ -132,6 +132,30 @@ class UserController extends AbstractController
     }
 
     /**
+     * @Route("/user/aplyedit/", name="user_aplyedit", methods={"POST"})
+     */
+    public function AplyEdit(EntityManagerInterface $em, $NouNom, $NouCognoms, $NouTelefon, $NouAdreca, $NouCiutat_Poble, $NouCodiPostal, $NouPais, $NouEmail, $NouFoto, $NouRebreMail)
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        $user=$this->getUser();
+
+        $user->setNom($NouNom);
+        $user->setCognoms($NouCognoms);
+        $user->setTelefon($NouTelefon);
+        $user->setDireccio($NouAdreca);
+        $user->setLocalitat($NouCiutat_Poble);
+        $user->setCodiPostal($NouCodiPostal);
+        $user->setPais($NouPais);
+        $user->setEmail($NouEmail);
+        $user->setArxiuFoto($NouFoto);
+        $user->setRebreMails($NouRebreMail);
+
+        $em->flush();
+
+        return JsonResponse::create(['correct' => true]);
+    }
+
+    /**
      * @Route("/user/comandes/", name="user_comandes")
      */
     public function Comandes()
