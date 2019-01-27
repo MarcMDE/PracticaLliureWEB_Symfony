@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/user/edit.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <div class = "w3-center titolDecorat"> <h2>Editar Perfil</h2> </div>
+<div class ="w3-card-4 w3-white userlog">
+
+    <br>
+
+    <div class="w3-container">
+
+        <form action="{{ path('user_register') }}" method="post">
+
+            <div class="w3-container w3-pale-red w3-round">
+                <h4>Dades Personals</h4>
+            </div>
+
+            <div class = "form-content">
+                <label class="w3-text-black"><b>Nom</b></label>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[A-Za-z]{1,255}" placeholder="Nom" name="Nom" id="Nom" required>
+
+                <label class="w3-text-black"><b>Cognoms</b></label>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[A-Za-z]{1,255}" placeholder="Cognoms" name="Cognoms" id="Cognoms" required>
+
+                <label class="w3-text-black"><b>Telèfon</b></label>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[0-9]{9}" placeholder="Telèfon" name="Telf" maxlength="9" minlength="9" required>
+            </div>
+
+            <br>
+
+            <div class="w3-container w3-pale-red w3-round">
+                <h4>Direcció</h4>
+            </div>
+
+            <div class="form-content">
+                <label class="w3-text-black"><b>Adreça</b></label>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern=".{1,255}" placeholder="Adreça" name="Direccio" required>
+
+                <label class="w3-text-black"><b>Ciutat/Poble</b></label>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[A-Za-z]{1,255}" placeholder="Ciutat/Poble" name="Localitat" required>
+
+                <label class="w3-text-black"><b>Codi Postal</b></label>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[0-9]{5}" placeholder="Codi Postal" name="CP" maxlength="5" minlength="5" required>
+
+
+                <label class="w3-text-black"><b>País</b></label>
+                <select class="w3-select w3-border w3-border-pale-red w3-hover-border-purple w3-round" name="Pais">
+                    <option value="" disabled selected>---</option>
+                    <option value="1">Alemanya</option>
+                    <option value="2">Catalunya</option>
+                    <option value="3">Regne unit</option>
+                </select>
+            </div>
+
+            <br>
+
+            <div class="w3-container w3-pale-red w3-round">
+                <h4>Dades d'usuari</h4>
+            </div>
+
+            <div class="form-content">
+                <label class="w3-text-black"><b>E-Mail</b></label>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" type="email" placeholder="E-Mail" name="Email" required>
+
+                <label class="w3-text-black"><b>Contrassenya</b></label>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="password" placeholder="Contrassenya" name="Psw" required>
+
+                <label class="w3-text-black"><b>Repeteix la contrassenya</b></label>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="password" placeholder="Repeteix la contrassenya" required>
+
+                <label class ="w3-text-black"><b>Foto de perfil</b></label>
+                <br>
+                <label for="Foto" class="w3-button">Seleccionar imatge</label>
+                <input type="file" style="display: none" accept="image/*" name="Foto" id="Foto">
+            </div>
+
+            <br>
+
+            <div class="w3-container w3-pale-red w3-round">
+                <h4>Vols rebre informació per email?</h4>
+            </div>
+
+            <div class="form-content">
+                <input class="w3-radio" type="radio" name="RebreMails" value=1 checked>
+                <label>SI</label>
+
+                <br>
+
+                <input class="w3-radio" type="radio" name="RebreMails" value=0>
+                <label>NO</label>
+            </div>
+
+            <br>
+
+            <button class="w3-btn w3-pale-red w3-round RelleuBut">Editar</button>
+
+            <br>
+            <br>
+
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+{#
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/shop/detail.js') }}"></script>
+{% endblock %}
+#}

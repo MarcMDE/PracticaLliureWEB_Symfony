@@ -101,4 +101,21 @@ class UserController extends AbstractController
 
         ]);
     }
+
+    /**
+     * @Route("/user/edit/", name="user_edit")
+     */
+    public function Edit()
+    {
+        $rep = $this
+            ->getDoctrine()
+            ->getRepository(Categories::class);
+
+        $categories = $rep->findAllNotEmpty();
+
+        return $this->render('user/edit.html.twig', [
+            'categories' => $categories,
+
+        ]);
+    }
 }
