@@ -34,7 +34,7 @@
                     <button class="w3-button navbar-button">PRODUCTES</button>
                     <div class="w3-dropdown-content w3-bar-block w3-card-4">
                         <a href="{{ path('shop_index', {id:-1}) }}" class="w3-bar-item w3-button">Tots</a>
-                        <a href="#" class="w3-bar-item w3-button">En promoció</a>
+                        <a href="{{ path('shop_index', {id:-2}) }}" class="w3-bar-item w3-button">En promoció</a>
                         <a href="#" class="w3-bar-item w3-button">De Temporada</a>
                     </div>
                 </div>
@@ -46,13 +46,15 @@
                     </div>
                 {% endfor %}
                 <div class = "w3-bar-item w3-dropdown-hover navbar-item w3-right">
-                    <button class="w3-button navbar-button"><i class="fas fa-shopping-basket fa-2x"></i></button>
-                    <div class="w3-dropdown-content w3-card-4 dropdown-content-right" style="width:250px">
-                        <img src="{{ asset('assets/images/Collage.PNG') }}" style="width:100%">
+                    <button class="w3-button navbar-button" onclick="onBag()"><i class="fas fa-shopping-basket fa-2x"></i></button>
+                    <div class="w3-dropdown-content w3-card-4 dropdown-content-right cistellF" style="width:250px">
+                        {# <img src="{{ asset('assets/images/Collage.PNG') }}" style="width:100%"> #}
                         <div class="w3-container">
-                            <p>Nom producte (serà una llista)</p>
-                            <p>Preu (anira amb cada producte)</p>
-                            <p>Preu Total (anira al final de tot)</p>
+                            <p><b>Nom producte (serà una llista)</b></p>
+                            <p><b>Quantitat (anira amb cada producte)</b></p>
+                            <p><b>Preu (anira amb cada producte)</b></p>
+                            <hr class="preuT">
+                            <p class="w3-center preuNum"><b>Preu Total: 40€</b></p>
                         </div>
                     </div>
                 </div>
@@ -61,10 +63,11 @@
                     <button class="w3-button navbar-button"><i class="fas fa-user-circle fa-2x"></i></button>
                     <div class="w3-dropdown-content w3-bar-block w3-card-4 dropdown-content-right">
                         {% if is_granted('ROLE_USER') %}
-                            <div>
+                            <div class="hola w3-center">
                                 <b>Hola, {{ app.user.Nom }}!</b>
+                                <hr>
                             </div>
-                            <a href="{{ path('user_edit') }}" class="w3-bar-item w3-button">Les meves comandes</a>
+                            <a href="{{ path('user_comandes') }}" class="w3-bar-item w3-button">Les meves comandes</a>
                             <a href="{{ path('user_edit') }}" class="w3-bar-item w3-button">Editar el perfil</a>
                             <a href="{{ path('app_logout') }}" class="w3-bar-item w3-button">Tancar sessió</a>
                         {% else %}

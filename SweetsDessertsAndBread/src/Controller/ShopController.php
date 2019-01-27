@@ -38,6 +38,10 @@ class ShopController extends AbstractController
         {
             $nomCategoriaActual = "Tots els productes";
         }
+        else if($id == -2)
+        {
+            $nomCategoriaActual = "Productes en Promoció";
+        }
         else
         {
             $nomCategoriaActual = $rep->find($id)->getNom();
@@ -52,6 +56,10 @@ class ShopController extends AbstractController
         if ($id == -1)
         {
             $productes = $rep->findActive();
+        }
+        else if ($id == -2)
+        {
+            $productes = $rep->findEnPromocio($id);
         }
         else
         {

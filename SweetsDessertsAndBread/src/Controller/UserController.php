@@ -116,6 +116,7 @@ class UserController extends AbstractController
     public function Edit()
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
+        $user=$this->getUser();
 
         $rep = $this
             ->getDoctrine()
@@ -125,7 +126,16 @@ class UserController extends AbstractController
 
         return $this->render('user/edit.html.twig', [
             'categories' => $categories,
-
+            'Nom' => $user->getNom(),
+            'Cognoms' => $user->getCognoms(),
+            'Telefon' => $user->getTelefon(),
+            'Adreca' => $user->getDireccio(),
+            'Ciutat_Poble' => $user->getLocalitat(),
+            'CodiPostal' => $user->getCodiPostal(),
+            'Pais' => $user->getPais(),
+            'Email' => $user->getEmail(),
+            'Foto' => $user->getArxiuFoto(),
+            'RebreMail' => $user->getRebreMails()
         ]);
     }
 
