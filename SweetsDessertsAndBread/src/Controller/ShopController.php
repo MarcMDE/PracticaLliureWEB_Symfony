@@ -7,6 +7,8 @@
  */
 
 namespace App\Controller;
+use App\Entity\Comandes;
+use App\Entity\ComandaProductes;
 use App\Entity\Productes;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -15,6 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Categories;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ShopController extends AbstractController
 {
@@ -159,8 +162,54 @@ class ShopController extends AbstractController
     /**
      * @Route("/shop/compra/", name="shop_compra")
      */
-    public function Compra()
+    public function Compra(EntityManagerInterface $em)
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        $cistellArr = $this->session->get('cistell', []);
+        if (count($cistellArr) > 0)
+        {
+            $user=$this->getUser();
+            $novaComanda = new Comandes();
+
+
+            $novaComanda->setUsuari($user);
+            $novaComanda->setEstat("pagat");
+
+            $time = new \DateTime();
+            $time->format('H:i:s \O\n Y-m-d');
+
+            $novaComanda->setDataCreacio($time);
+            $em->persist($novaComanda);
+
+            $prodsRep = $this
+                ->getDoctrine()
+                ->getRepository(Productes::class);
+
+            foreach ($cistellArr as $id => $quant)
+            {
+                $producte = $prodsRep->findActiveBy($id);
+
+                if ($producte != null)
+                {
+                    $comandaProd = new ComandaProductes();
+
+                    $comandaProd->setComanda($novaComanda);
+                    $comandaProd->setPreu($producte->getPreuActual() * $quant);
+                    $comandaProd->setUnitats($quant);
+                    $comandaProd->setProducte($producte);
+
+                    $em->persist($comandaProd);
+                }
+            }
+
+            $em->flush();
+
+            $this->session->remove('cistell');
+            $this->session->remove('cistellPreu');
+            $this->session->remove('cistellMostra');
+        }
+
         $rep = $this
             ->getDoctrine()
             ->getRepository(Categories::class);
@@ -168,6 +217,7 @@ class ShopController extends AbstractController
         $cistellMostraArr = $this->session->get('cistellMostra', []);
         $preuTotal = $this->session->get('cistellPreu', 0);
         $cistellIndexArr = array();
+
         foreach ($cistellMostraArr as $text)
         {
             array_push($cistellIndexArr, $text);
