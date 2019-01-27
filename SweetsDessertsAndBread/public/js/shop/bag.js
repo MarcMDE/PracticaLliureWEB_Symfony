@@ -29,15 +29,11 @@ function onComprar(){
 
 function onBuidarCistell()
 {
-    
     $.ajax({
         method: 'post',
-        url: '/shop/AfegirAlCistell/',
-        data: {
-            id: $("#prodId").val(),
-            quant: quant
+        url: '/shop/BuidarCistell/'
         }
-    }).done(function(data){
+    ).done(function(data){
 
         if (data.correct == true)
         {
@@ -45,7 +41,6 @@ function onBuidarCistell()
         }
         else
         {
-            console.log("AJAX ERROR");
             // TODO: MOSTRAR MISSATGE ERROR
         }
     });
