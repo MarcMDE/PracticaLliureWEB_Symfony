@@ -14,6 +14,6 @@ function openCategory(evt, categoryName) {
 function onBag()
 {
 
-    window.location = "/shop/bag/{id}";
+    window.location = "/shop/bag";
 
 }
