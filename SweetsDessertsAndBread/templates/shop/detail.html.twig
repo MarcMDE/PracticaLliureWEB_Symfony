@@ -76,19 +76,17 @@
         <div class="pg-compra">
             <div class = "quantiatP">
                 Quants ens vols?
-                <input id="prodQuant" type="number" min="1" value="1">
+                <input id="prodQuant" type="number" min="1" max="50" value="1">
             </div>
 
             <br>
             <br>
 
-            <button class = "w3-btn w3-pale-red w3-round RelleuBut"> Afegir al cistell </button>
+            <button class = "w3-btn w3-pale-red w3-round RelleuBut" onclick="onAfegiarAlCistell()"> Afegir al cistell </button>
             <br>
             <br>
         </div>
     </section>
-
-
 
     <section class="valorations">
 
@@ -99,4 +97,5 @@
 {% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('js/shop/detail.js') }}"></script>
+    <script src="{{ asset('js/cistell.js') }}"></script>
 {% endblock %}

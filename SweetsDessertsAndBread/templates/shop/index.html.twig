@@ -43,10 +43,12 @@
     <div id="ajaxResp"></div>
 #}
 
+
 {% endblock %}
 
 {% block javascripts %}
 {{ parent() }} {# Afegeix el contingut del block del parent, així, podem afegir scripts concrets només per aquesta template sense sobrescriure els del pare#}
     <script src="{{ asset('js/example.js') }}"></script>
     <script src="{{ asset('js/shop/index.js') }}"></script>
+    <script src="{{ asset('js/cistell.js') }}"></script>
 {% endblock %}

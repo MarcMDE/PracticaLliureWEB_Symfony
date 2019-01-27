@@ -1,11 +1,9 @@
-$(function(){
-    $("#EntrarTab").addClass("w3-white");
-
-})
-
 function onAfegiarAlCistell()
 {
     var quant = $("#prodQuant").val();
+
+    console.log("Quant: " + quant);
+    console.log("Id: " + quant);
 
     if (isNaN(quant))
     {
@@ -14,18 +12,22 @@ function onAfegiarAlCistell()
 
     $.ajax({
         method: 'post',
-        url: 'AjaxResp/',
+        url: '/shop/AfegirAlCistell/',
         data: {
             id: $("#prodId").val(),
             quant: quant
         }
     }).done(function(data){
+
+        console.log("Ajax Finalitzat " + data.correct);
+
         if (data.correct == true)
         {
-            // TODO: ACTUALITZAR CISTELL
+            actualitzaCistell(data.cistell, data.cistellTotal);
         }
         else
         {
+            console.log("AJAX ERROR");
             // TODO: MOSTRAR MISSATGE ERROR
         }
     });

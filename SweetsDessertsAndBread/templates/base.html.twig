@@ -49,12 +49,25 @@
                     <button class="w3-button navbar-button" onclick="onBag()"><i class="fas fa-shopping-basket fa-2x"></i></button>
                     <div class="w3-dropdown-content w3-card-4 dropdown-content-right cistellF" style="width:250px">
                         {# <img src="{{ asset('assets/images/Collage.PNG') }}" style="width:100%"> #}
-                        <div class="w3-container">
+                        <div class="w3-container" id="cistellContent">
+                            {% if ((cistell|length) == 0) %}
+                                <p><b>Afegeix algún producte al cistell!</b></p>
+                            {% else %}
+                            <ul>
+                            {% for prod in cistell %}
+                                <li>{{ prod }}</li>
+                            {% endfor %}
+                            </ul>
+                            <hr class='preuT'>
+                            <p class="w3-center preuNum"><b>Preu Total: {{ cistellTotal }} €</b></p>
+                            {% endif %}
+                            <!--
                             <p><b>Nom producte (serà una llista)</b></p>
                             <p><b>Quantitat (anira amb cada producte)</b></p>
                             <p><b>Preu (anira amb cada producte)</b></p>
                             <hr class="preuT">
                             <p class="w3-center preuNum"><b>Preu Total: 40€</b></p>
+                            -->
                         </div>
                     </div>
                 </div>

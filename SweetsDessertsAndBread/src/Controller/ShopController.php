@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Categories;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 class ShopController extends AbstractController
 {
@@ -33,6 +34,14 @@ class ShopController extends AbstractController
         $rep = $this
             ->getDoctrine()
             ->getRepository(Categories::class);
+
+        $cistellMostraArr = $this->session->get('cistellMostra', []);
+        $preuTotal = $this->session->get('cistellPreu', 0);
+        $cistellIndexArr = array();
+        foreach ($cistellMostraArr as $text)
+        {
+            array_push($cistellIndexArr, $text);
+        }
 
         if ($id == -1)
         {
@@ -69,7 +78,9 @@ class ShopController extends AbstractController
         return $this->render('shop/index.html.twig', [
             'title' => $nomCategoriaActual,
             'categories' => $categories,
-            'productes' => $productes
+            'productes' => $productes,
+            'cistell' => $cistellIndexArr,
+            'cistellTotal' => $preuTotal
         ]);
     }
 
@@ -82,6 +93,14 @@ class ShopController extends AbstractController
                 ->getDoctrine()
                 ->getRepository(Categories::class);
 
+        $cistellMostraArr = $this->session->get('cistellMostra', []);
+        $preuTotal = $this->session->get('cistellPreu', 0);
+        $cistellIndexArr = array();
+        foreach ($cistellMostraArr as $text)
+        {
+            array_push($cistellIndexArr, $text);
+        }
+
         $categories = $rep->findAllNotEmpty();
 
         $rep = $this
@@ -93,20 +112,11 @@ class ShopController extends AbstractController
         return $this->render('shop/detail.html.twig', [
             'id' => $id,
             'categories' => $categories,
-            'producte' => $producte
+            'producte' => $producte,
+            'cistell' => $cistellIndexArr,
+            'cistellTotal' => $preuTotal
         ]);
     }
-
-    // Exemple de resposta Json per a una crida Ajax
-    /**
-     * @Route("/shop/AjaxResp/", methods={"POST"})
-     */
-    /*
-    public function AjaxResp()
-    {
-        return JsonResponse::create(['nom_var' => rand(5,100)]);
-    }
-    */
 
     /**
      * @Route("/shop/bag/{id}", name="shop_bag")
@@ -116,6 +126,14 @@ class ShopController extends AbstractController
         $rep = $this
             ->getDoctrine()
             ->getRepository(Categories::class);
+
+        $cistellMostraArr = $this->session->get('cistellMostra', []);
+        $preuTotal = $this->session->get('cistellPreu', 0);
+        $cistellIndexArr = array();
+        foreach ($cistellMostraArr as $text)
+        {
+            array_push($cistellIndexArr, $text);
+        }
 
         $categories = $rep->findAllNotEmpty();
 
@@ -128,7 +146,9 @@ class ShopController extends AbstractController
         return $this->render('shop/bag.html.twig', [
             'id' => $id,
             'categories' => $categories,
-            'producte' => 1
+            'producte' => 1,
+            'cistell' => $cistellIndexArr,
+            'cistellTotal' => $preuTotal
         ]);
     }
 
@@ -141,6 +161,14 @@ class ShopController extends AbstractController
             ->getDoctrine()
             ->getRepository(Categories::class);
 
+        $cistellMostraArr = $this->session->get('cistellMostra', []);
+        $preuTotal = $this->session->get('cistellPreu', 0);
+        $cistellIndexArr = array();
+        foreach ($cistellMostraArr as $text)
+        {
+            array_push($cistellIndexArr, $text);
+        }
+
         $categories = $rep->findAllNotEmpty();
 
         /* $rep = $this
@@ -150,18 +178,27 @@ class ShopController extends AbstractController
         /* $producte = $rep->findActiveBy($id); */
 
         return $this->render('shop/compra.html.twig', [
-            'categories' => $categories
+            'categories' => $categories,
+            'cistell' => $cistellIndexArr,
+            'cistellTotal' => $preuTotal
         ]);
     }
 
     /**
-     * @Route("/shop/AfegirAlCistell/{id}/{quant}", name="shop_afegircistell", methods={"POST"})
+     * @Route("/shop/AfegirAlCistell/", name="shop_afegircistell", methods={"POST"})
      */
-    public function AfegirAlCistell($id, $quant)
+    public function AfegirAlCistell(Request $request)
     {
         $rep = $this
             ->getDoctrine()
             ->getRepository(Productes::class);
+
+
+
+        $data = $request->request->all();
+
+        $id = $data['id'];
+        $quant = $data['quant'];
 
         $nouProducte = $rep->find($id);
 
@@ -169,30 +206,48 @@ class ShopController extends AbstractController
         {
             $preu = $nouProducte->getPreuActual();
 
+            $cistellArr = $this->session->get('cistell', []);
+
+            $preuTotal = $this->session->get('cistellPreu', 0);
+            $preuTotal += $quant * $preu;
+            $this->session->set('cistellPreu', $preuTotal);
+
+            if (array_key_exists($id, $cistellArr))
+            {
+                $quant += $cistellArr[$id];
+            }
+
+            $cistellArr[$id] = $quant;
+
+            $this->session->set('cistell', $cistellArr);
+
             $cistellMostraArr = $this->session->get('cistellMostra', []);
             $cistellMostraArr[$id] = $nouProducte->getNom() . " (x" . $quant . ") - " . $quant * $preu . " €";
 
             $this->session->set('cistellMostra', $cistellMostraArr);
 
-            $cistellArr = $this->session->get('cistell', []);
-            $cistellArr[$id] = $quant;
-
-            $this->session->set('cistell', $cistellArr);
-
+            /*
             $preuTotal = 0;
             foreach ($cistellArr as $val)
             {
                 $preuTotal = $preuTotal + $val;
             }
+            */
 
-            $this->session->set('cistellPreu', $preuTotal);
+            $cistellIndexArr = array();
 
-            return JsonResponse::create(['correct' => true]);
+            foreach ($cistellMostraArr as $text)
+            {
+               array_push($cistellIndexArr, $text);
+            }
+
+            return JsonResponse::create(['correct' => true, 'cistell' => $cistellIndexArr, 'cistellTotal' => $preuTotal]);
         }
         else
         {
             return JsonResponse::create(['correct' => false]);
         }
+
     }
 
 }
