@@ -1,0 +1,25 @@
+"id";"categoria_id";"nom";"descripcio";"preu";"preu_oferta";"actiu";"temporada_id"
+1;1;"Pastís de Xocolata Blanc i Crema de Maduixes";"Es desfà a la boca! Amb pa de pessic i crema de maduixes del Maresme.";17.0;0.0;1;0
+2;1;"Pa de Pessic Gran";"Super espojós!";20.0;15.0;1;0
+3;1;"Pastís de Xocolata i Crema - Petit";"Pastís de xocoalte 70% farcit de crema. Ideal per a 2 persones.";7.0;0.0;1;0
+4;1;"Pastís de Xocolata amb pà de pessic de llimona";"Boníssim! Us en llepareu els dits.";30.0;0.0;1;0
+5;1;"Pastís de Xocolata - Petit";"Disfruteu d'una xocolata 80% cacao extrahordinaria. Ideal per a dues persones.";10.0;0.0;1;0
+6;5;"Bossetes de Bastonets ";"De pipes, de formatge i normlas";4.0;2.0;1;0
+7;5;"Pa al vapor";"Fet amb molt de carinyo al nostre forn de vapor";2.5;0.0;1;0
+8;5;"Pa amb Massa Mare";"Encara no l'has probat? El millor de tots! Cruixent i esponjós alhora, ideal per acompanyar un bon plat d'embotits o formatges.";5.0;0.0;1;0
+9;7;"Mousse de Llimona";"Combinació de dolç i amarg! Una explosió de sabors!";5.0;0.0;1;0
+10;2;"Magdalenes";"Pack de magdalenes! ";5.7;0.0;1;0
+11;6;"Bosseta de Galetes de xocolata";"Boníssimes!!";3.9;0.0;1;0
+12;6;"Bosseta de Galetes de llimona";"Ideals per acompanyar té, café o un bon got de llet!";5.5;0.0;1;0
+13;4;"Flam d'ou";"Amb la recepta de la iaia Maria, els millors del món!!";3.0;0.0;1;0
+14;3;"Braç de Gitano de Crema - Gran";"Boníssim!";13.0;0.0;1;0
+15;8;"Bossetes de Panellets";"Els millors que podreu trobar al mercat!! BONA CASTENYADA! :D";17.0;0.0;1;0
+16;3;"Braç de Gitano de Crema - Petit";"Per llepar-se'n els dits!";5.0;3.0;1;0
+17;1;"Pà de pessic de Llimona";"Encara no l'has probat? Compre'l i gaudeix del millor acompanyament per un bon got de llet.";10.0;0.0;1;0
+18;1;"Pà de Pessic - Mitjà";"Boníssim!!";21.0;0.0;1;0
+19;1;"2 Porcións de Pà de Pessic";"Prove'l! Segur que voldràs repetir!!!!";3.0;2.5;1;0
+20;1;"Pastís de Xocolata i Crema - Mitjà";"Boníssim!!! Xocolata 70% cacao! I una crema finíssima que te'n lleparàs els dits!! Ideal per a 4-5 persones.";30.0;19.75;1;0
+21;1;"Pastís de Xocolata amb Pà de Pessic de Llimona - Gran";"Boníssim!!! Xocolata 70% cacao! Ideal per 15-17 persones.";37.0;34.0;1;0
+22;1;"Pastís de Xocolata - Gran";"Exquisit!! Xocolata 80% cacao.";32.0;0.0;1;0
+23;1;"Xocolata - Mitjà";"Deliciós! Ideal per a 4-5 persones.";23.0;0.0;1;0
+24;5;"Panets";"Ideals per acompanyar qualsevol àpat. Panets sols, amb sèsam i amb formatge.";5.0;4.0;1;0
