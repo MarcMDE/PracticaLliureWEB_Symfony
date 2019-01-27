@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ShopController extends AbstractController
 {
     /**
-     * @Route("/shop/{id}", name="shop_index")
+     * @Route("/shop/shop/{id}", name="shop_index")
      */
     public function Index($id)
     {
@@ -114,5 +114,26 @@ class ShopController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/shop/compra/", name="shop_compra")
+     */
+    public function Compra()
+    {
+        $rep = $this
+            ->getDoctrine()
+            ->getRepository(Categories::class);
+
+        $categories = $rep->findAllNotEmpty();
+
+        /* $rep = $this
+             ->getDoctrine()
+             ->getRepository(Productes::class);*/
+
+        /* $producte = $rep->findActiveBy($id); */
+
+        return $this->render('shop/compra.html.twig', [
+            'categories' => $categories
+        ]);
+    }
 
 }

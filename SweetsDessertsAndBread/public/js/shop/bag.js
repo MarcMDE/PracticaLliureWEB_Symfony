@@ -13,17 +13,7 @@ function onComprar(){
 
     if(correcte == true)
     {
-
-        Swal.fire({
-            title: 'Enhorabona!',
-            text: "Has realitzat la teva compra correctament!",
-            type: 'success',
-            confirmButtonColor: '#F7819F',
-            confirmButtonText: 'Tornar a la Botiga'
-        }).then(() => {
-
-             window.location="/shop/-1";
-        })
+        window.location = "/shop/compra";
     }
    else{
         Swal.fire({
