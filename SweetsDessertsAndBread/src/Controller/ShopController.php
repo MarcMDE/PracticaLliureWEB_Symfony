@@ -119,9 +119,9 @@ class ShopController extends AbstractController
     }
 
     /**
-     * @Route("/shop/bag/{id}", name="shop_bag")
+     * @Route("/shop/bag/", name="shop_bag")
      */
-    public function Bag($id)
+    public function Bag()
     {
         $rep = $this
             ->getDoctrine()
@@ -130,12 +130,16 @@ class ShopController extends AbstractController
         $cistellMostraArr = $this->session->get('cistellMostra', []);
         $preuTotal = $this->session->get('cistellPreu', 0);
         $cistellIndexArr = array();
-        foreach ($cistellMostraArr as $text)
+        $cistellIndexArrIds = array();
+        foreach ($cistellMostraArr as $key => $text)
         {
             array_push($cistellIndexArr, $text);
+            array_push($cistellIndexArrIds, $key);
         }
 
         $categories = $rep->findAllNotEmpty();
+
+        $cistellArr = $this->session->get('cistell', []);
 
        /* $rep = $this
             ->getDoctrine()
@@ -144,11 +148,11 @@ class ShopController extends AbstractController
        /* $producte = $rep->findActiveBy($id); */
 
         return $this->render('shop/bag.html.twig', [
-            'id' => $id,
             'categories' => $categories,
             'producte' => 1,
             'cistell' => $cistellIndexArr,
-            'cistellTotal' => $preuTotal
+            'cistellTotal' => $preuTotal,
+            'cistellIds' => $cistellIndexArrIds
         ]);
     }
 
@@ -192,8 +196,6 @@ class ShopController extends AbstractController
         $rep = $this
             ->getDoctrine()
             ->getRepository(Productes::class);
-
-
 
         $data = $request->request->all();
 

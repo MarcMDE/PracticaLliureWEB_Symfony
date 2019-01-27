@@ -27,4 +27,28 @@ function onComprar(){
     }
 }
 
+function onBuidarCistell()
+{
+    
+    $.ajax({
+        method: 'post',
+        url: '/shop/AfegirAlCistell/',
+        data: {
+            id: $("#prodId").val(),
+            quant: quant
+        }
+    }).done(function(data){
+
+        if (data.correct == true)
+        {
+            actualitzaCistell(data.cistell, data.cistellTotal);
+        }
+        else
+        {
+            console.log("AJAX ERROR");
+            // TODO: MOSTRAR MISSATGE ERROR
+        }
+    });
+}
+
 

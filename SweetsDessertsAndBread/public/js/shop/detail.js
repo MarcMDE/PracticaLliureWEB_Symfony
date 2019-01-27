@@ -2,9 +2,6 @@ function onAfegiarAlCistell()
 {
     var quant = $("#prodQuant").val();
 
-    console.log("Quant: " + quant);
-    console.log("Id: " + quant);
-
     if (isNaN(quant))
     {
         quant = 1;
@@ -18,8 +15,6 @@ function onAfegiarAlCistell()
             quant: quant
         }
     }).done(function(data){
-
-        console.log("Ajax Finalitzat " + data.correct);
 
         if (data.correct == true)
         {

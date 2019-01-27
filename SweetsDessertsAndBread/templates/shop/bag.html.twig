@@ -6,21 +6,23 @@
 {% endblock %}
 
 {% block content %}
-
+    {% if ((cistell|length) == 0) %}
+        <p><b>Afegeix algún producte al cistell!</b></p>
+    {% else %}
     <div class="w3-container">
         <div class = "w3-center titolDecorat"> <h2>Cistell de Compra:</h2> </div>
         <button class="w3-btn w3-pale-red w3-round comprar RelleuBut Com" onclick="onComprar()">COMPRAR</button>
         <button class="w3-btn w3-pale-blue w3-round comprar RelleuBut BC">Buidar Cistell</button>
         <p>Per eliminar el producte, clica a la "x":</p>
-
         <ul class="w3-ul w3-card-4">
 
-            {# Mirar quina es la manera de posar els productes seleccionats anteriorment #}
-
-            <li class="w3-display-container">Flam <span onclick="this.parentElement.style.display='none'" class="w3-button w3-transparent w3-display-right">&times;</span></li>
-            <li class="w3-display-container">Galetes de Llimona <span onclick="this.parentElement.style.display='none'" class="w3-button w3-transparent w3-display-right">&times;</span></li>
-            <li class="w3-display-container">Bastonets <span onclick="this.parentElement.style.display='none'" class="w3-button w3-transparent w3-display-right">&times;</span></li>
+            {% for i in range(0, (cistell|length)-1) %}
+                <li class="w3-display-container">{{ cistell[i] }} <span onclick="this.parentElement.style.display='none'" class="w3-button w3-transparent w3-display-right">&times;</span></li>
+                <input hidden id="pid_{{ cistellIds[i] }}" value="cistellIds[i]">
+            {% endfor %}
         </ul>
+        <p class="w3-center preuNum"><b>Preu Total: {{ cistellTotal }} €</b></p>
+
     </div>
 
     <br>
@@ -56,6 +58,8 @@
 
         </form>
     </div>
+
+    {% endif %}
 
     <br>
 
