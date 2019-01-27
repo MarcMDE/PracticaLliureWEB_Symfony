@@ -9,6 +9,7 @@
 namespace App\Controller;
 use App\Entity\Productes;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Categories;
@@ -16,6 +17,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ShopController extends AbstractController
 {
+    private $session;
+
+    public function __construct(SessionInterface $session)
+    {
+        $this->session = $session;
+    }
+
     /**
      * @Route("/shop/shop/{id}", name="shop_index")
      */
@@ -85,10 +93,12 @@ class ShopController extends AbstractController
     /**
      * @Route("/shop/AjaxResp/", methods={"POST"})
      */
+    /*
     public function AjaxResp()
     {
         return JsonResponse::create(['nom_var' => rand(5,100)]);
     }
+    */
 
     /**
      * @Route("/shop/bag/{id}", name="shop_bag")
@@ -134,6 +144,47 @@ class ShopController extends AbstractController
         return $this->render('shop/compra.html.twig', [
             'categories' => $categories
         ]);
+    }
+
+    /**
+     * @Route("/shop/AfegirAlCistell/{id}/{quant}", name="shop_afegircistell", methods={"POST"})
+     */
+    public function AfegirAlCistell($id, $quant)
+    {
+        $rep = $this
+            ->getDoctrine()
+            ->getRepository(Productes::class);
+
+        $nouProducte = $rep->find($id);
+
+        if ($nouProducte != null)
+        {
+            $preu = $nouProducte->getPreuActual();
+
+            $cistellMostraArr = $this->session->get('cistellMostra', []);
+            $cistellMostraArr[$id] = $nouProducte->getNom() . " (x" . $quant . ") - " . $quant * $preu . " €";
+
+            $this->session->set('cistellMostra', $cistellMostraArr);
+
+            $cistellArr = $this->session->get('cistell', []);
+            $cistellArr[$id] = $quant;
+
+            $this->session->set('cistell', $cistellArr);
+
+            $preuTotal = 0;
+            foreach ($cistellArr as $val)
+            {
+                $preuTotal = $preuTotal + $val;
+            }
+
+            $this->session->set('cistellPreu', $preuTotal);
+
+            return JsonResponse::create(['correct' => true]);
+        }
+        else
+        {
+            return JsonResponse::create(['correct' => false]);
+        }
     }
 
 }

@@ -3,6 +3,34 @@ $(function(){
 
 })
 
+function onAfegiarAlCistell()
+{
+    var quant = $("#prodQuant").val();
+
+    if (isNaN(quant))
+    {
+        quant = 1;
+    }
+
+    $.ajax({
+        method: 'post',
+        url: 'AjaxResp/',
+        data: {
+            id: $("#prodId").val(),
+            quant: quant
+        }
+    }).done(function(data){
+        if (data.correct == true)
+        {
+            // TODO: ACTUALITZAR CISTELL
+        }
+        else
+        {
+            // TODO: MOSTRAR MISSATGE ERROR
+        }
+    });
+}
+
 
 var slideIndex = 1;
 showDivs(slideIndex);

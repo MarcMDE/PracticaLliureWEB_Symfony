@@ -95,6 +95,18 @@ class Productes
         else return true;
     }
 
+    public function getPreuActual(): ?float
+    {
+        if ($this->enOferta())
+        {
+            return $this->getPreuOferta();
+        }
+        else
+        {
+            return $this->getPreu();
+        }
+    }
+
     public function getId(): ?int
     {
         return $this->id;
