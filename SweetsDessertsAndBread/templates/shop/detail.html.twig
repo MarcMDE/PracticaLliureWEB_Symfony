@@ -58,6 +58,7 @@
             </div>
 
         </div>
+        <input id="prodId" hidden value="{{ producte.id }}">
         <div class="pg-nom">{{ producte.Nom }}</div>
         <div class="pg-preu">
             {% if producte.enOferta %}
@@ -73,8 +74,9 @@
         <div class="pg-desc">{{ producte.Descripcio }} </div>
 
         <div class="pg-compra">
-            <div class = "quantiatP"> Quants ens vols?
-                <input type="number" min="1">
+            <div class = "quantiatP">
+                Quants ens vols?
+                <input id="prodQuant" type="number" min="1" value="1">
             </div>
 
             <br>
