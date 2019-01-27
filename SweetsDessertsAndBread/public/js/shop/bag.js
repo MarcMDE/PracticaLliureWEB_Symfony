@@ -37,6 +37,9 @@ function onBuidarCistell()
 
         if (data.correct == true)
         {
+            $("#dadesTarjeta").html("");
+            $("#bagContainer").html("");
+            $("#cistellBuit").show();
             actualitzaCistell(data.cistell, data.cistellTotal);
         }
         else

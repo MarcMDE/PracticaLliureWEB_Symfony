@@ -4,7 +4,7 @@ function actualitzaCistell(arr, total)
     console.log("L:" + arr.length);
     if (arr.length === 0)
     {
-        cistell += "Afegeix algún producte al cistell!"
+        cistell += "<p><b>Afegeix algún producte al cistell!</b></p>"
     }
     else
     {
