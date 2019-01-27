@@ -118,4 +118,21 @@ class UserController extends AbstractController
 
         ]);
     }
+
+    /**
+     * @Route("/user/comandes/", name="user_comandes")
+     */
+    public function Comandes()
+    {
+        $rep = $this
+            ->getDoctrine()
+            ->getRepository(Categories::class);
+
+        $categories = $rep->findAllNotEmpty();
+
+        return $this->render('user/comandes.html.twig', [
+            'categories' => $categories,
+
+        ]);
+    }
 }
