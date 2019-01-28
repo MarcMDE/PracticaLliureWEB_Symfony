@@ -22,3 +22,7 @@
     color: #F7819F;
 }
 
+.alert-danger{
+    color:red;
+    margin-bottom: 10px;
+}
