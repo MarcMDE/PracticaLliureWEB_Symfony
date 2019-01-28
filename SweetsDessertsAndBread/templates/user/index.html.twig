@@ -111,7 +111,7 @@
 
                 <br>
 
-                <button class="w3-btn w3-pale-red w3-round RelleuBut">Registrar-se</button>
+                <button id="regButton" class="w3-btn w3-pale-red w3-round RelleuBut">Registrar-se</button>
 
                 <br>
                 <br>
@@ -175,4 +175,5 @@
 {% block javascripts %}
     {{ parent() }} {# Afegeix el contingut del block del parent, així, podem afegir scripts concrets només per aquesta template sense sobrescriure els del pare#}
     <script src="{{ asset('js/user/user.js') }}"></script>
+    <script src="{{ asset('js/user/validation.js') }}"></script>
 {% endblock %}
