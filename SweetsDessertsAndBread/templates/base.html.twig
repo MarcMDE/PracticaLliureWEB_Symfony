@@ -42,7 +42,7 @@
                 {% for categoria in categories %}
                     <div class ="w3-bar-item navbar-item">
                       {#<button class="w3-button navbar-button tablinks" onclick="openCategory(event, '{{ categoria.Nom }}')">{{ categoria.Nom }}</button>#}
-                        <a class="w3-button navbar-button tablinks Categ" href="{{ path('shop_index', {id:categoria.id}) }}">{{ categoria.Nom }}</a>
+                        <a class="w3-button navbar-button" href="{{ path('shop_index', {id:categoria.id}) }}"><div class="Categ">{{ categoria.Nom }}</div></a>
                     </div>
                 {% endfor %}
                 <div class = "w3-bar-item w3-dropdown-hover navbar-item w3-right">
