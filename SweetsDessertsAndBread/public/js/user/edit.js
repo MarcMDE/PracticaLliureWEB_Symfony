@@ -1,4 +1,4 @@
-function onAplyEdit()
+/*function onAplyEdit()
 {
     console.log("oi");
 
@@ -55,3 +55,4 @@ function onAplyEdit()
         }
     });
 }
+*/
