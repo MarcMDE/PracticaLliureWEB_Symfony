@@ -19,22 +19,24 @@ class UsuarisRepository extends ServiceEntityRepository
         parent::__construct($registry, Usuaris::class);
     }
 
-    // /**
-    //  * @return Usuaris[] Returns an array of Usuaris objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Usuaris[] Returns an array of Comandes objects
+     */
+    public function findByEmail($mail)
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        try{
+            return $this->createQueryBuilder('p')
+                ->andWhere('p.email = :mail')
+                ->setParameter('mail', $mail)
+                ->getQuery()
+                ->getResult();
+        }
+        catch (\Exception $e)
+        {
+            return null;
+        }
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Usuaris

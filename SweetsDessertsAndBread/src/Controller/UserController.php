@@ -258,4 +258,29 @@ class UserController extends AbstractController
 
         ]);
     }
+
+    /**
+     * @Route("/shop/validateemail", name="shop_vemail", methods={"POST"})
+     */
+    public function ValidateEmail(Request $request)
+    {
+        $emailData = $request->request->all();
+
+        $email = $emailData['email'];
+
+        $rep = $this
+            ->getDoctrine()
+            ->getRepository(Usuaris::class);
+
+        $any = count($rep->findByEmail($email)) > 0;
+
+        if ($any == false)
+        {
+            return JsonResponse::create(['correct' => true]);
+        }
+        else
+        {
+            return JsonResponse::create(['correct' => false]);
+        }
+    }
 }
