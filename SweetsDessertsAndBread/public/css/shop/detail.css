@@ -56,6 +56,36 @@
 .quantiatP input{
     width:50px;
 }
+
+.detail-cont {
+    position: relative;
+    text-align: center;
+}
+
+.detail-cont {
+    background-color: #f1deea;
+    width: 500px;
+    height: 500px;
+    margin: 8px;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition-duration: 0.3s;
+}
+
+.detail-img img {
+    max-width: 500px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+
+    transition-duration: 0.5s;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /*
 .quantiatP {
     position: relative;
