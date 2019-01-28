@@ -180,19 +180,36 @@ class UserController extends AbstractController
 
         $formData = $request->request->all();
 
-        $user->setNom($formData['NouNom']);
-        $user->setCognoms($formData['NouCognoms']);
-        $user->setTelefon($formData['NouTelefon']);
-        $user->setDireccio($formData['NouAdreca']);
-        $user->setLocalitat($formData['NouCiutat_Poble']);
-        $user->setCodiPostal($formData['NouCodiPostal']);
-        $user->setPais($formData['NouPais']);
-        $user->setEmail($formData['NouEmail']);
-        $user->setRebreMails($formData['NouRebreMail']);
+        $user->setNom($formData['Nom']);
+        $user->setCognoms($formData['Cognoms']);
+        $user->setTelefon($formData['Telefon']);
+        $user->setDireccio($formData['Adreca']);
+        $user->setLocalitat($formData['Ciutat_Poble']);
+        $user->setCodiPostal($formData['CodiPostal']);
+        $user->setPais($formData['Pais']);
+        $user->setEmail($formData['Email']);
+        $user->setRebreMails($formData['RebreMail']);
 
         $em->flush();
 
-        return JsonResponse::create(['correct' => true]);
+        $rep = $this
+            ->getDoctrine()
+            ->getRepository(Categories::class);
+        $categories = $rep->findAllNotEmpty();
+
+        $cistellMostraArr = $this->session->get('cistellMostra', []);
+        $preuTotal = $this->session->get('cistellPreu', 0);
+        $cistellIndexArr = array();
+        foreach ($cistellMostraArr as $text)
+        {
+            array_push($cistellIndexArr, $text);
+        }
+
+        return $this->render('user/aplyedit.html.twig', [
+            'categories' => $categories,
+            'cistell' => $cistellIndexArr,
+            'cistellTotal' => $preuTotal,
+        ]);
     }
 
     /**

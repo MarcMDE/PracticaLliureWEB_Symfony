@@ -14,7 +14,7 @@
 
     <div class="w3-container">
 
-        <form>
+        <form action="{{ path('user_aplyedit') }}" method="post">
 
             <div class="w3-container w3-pale-red w3-round">
                 <h4>Dades Personals</h4>
@@ -28,7 +28,7 @@
                 <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[A-Za-z]{1,255}" placeholder="Cognoms" name="Cognoms" value="{{ Cognoms }}" id="Cognoms" required>
 
                 <label class="w3-text-black"><b>Telèfon</b></label>
-                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[0-9]{9}" placeholder="Telèfon" id="Telf" name="Telf" value="{{ Telefon }}" maxlength="9" minlength="9" required>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[0-9]{9}" placeholder="Telèfon" id="Telefon" name="Telefon" value="{{ Telefon }}" maxlength="9" minlength="9" required>
             </div>
 
             <br>
@@ -39,13 +39,13 @@
 
             <div class="form-content">
                 <label class="w3-text-black"><b>Adreça</b></label>
-                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern=".{1,255}" placeholder="Adreça" value="{{ Adreca }}" name="Direccio" id="Adreca" required>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern=".{1,255}" placeholder="Adreça" value="{{ Adreca }}" name="Adreca" id="Adreca" required>
 
                 <label class="w3-text-black"><b>Ciutat/Poble</b></label>
-                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[A-Za-z]{1,255}" placeholder="Ciutat/Poble" value="{{ Ciutat_Poble }}" name="Localitat" id="Loc" required>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[A-Za-z]{1,255}" placeholder="Ciutat/Poble" value="{{ Ciutat_Poble }}" name="Ciutat_Poble" id="Ciutat_Poble" required>
 
                 <label class="w3-text-black"><b>Codi Postal</b></label>
-                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[0-9]{5}" placeholder="Codi Postal" name="CP" id="CP" value="{{ CodiPostal }}" maxlength="5" minlength="5" required>
+                <input class="w3-input w3-border w3-border-pale-red w3-hover-border-purple w3-round" type="text" pattern="[0-9]{5}" placeholder="Codi Postal" name="CodiPostal" id="CodiPostal" value="{{ CodiPostal }}" maxlength="5" minlength="5" required>
 
 
                 <label class="w3-text-black"><b>País</b></label>
@@ -78,18 +78,18 @@
             </div>
 
             <div class="form-content">
-                <input class="w3-radio" type="radio" name="RebreMails" id="RebM" {% if (RebreMail == true) %} value=1 checked {% else %} value=0 {% endif %}>
+                <input class="w3-radio" type="radio" name="RebreMail" id="RebreMail" {% if (RebreMail == true) %} value=1 checked {% else %} value=0 {% endif %}>
                 <label>SI</label>
 
                 <br>
 
-                <input class="w3-radio" type="radio" name="RebreMails" id="RebM"{% if (RebreMail == false) %} value=1 checked {% else %} value=0 {% endif %}>
+                <input class="w3-radio" type="radio" name="RebreMail" id="RebreMail"{% if (RebreMail == false) %} value=1 checked {% else %} value=0 {% endif %}>
                 <label>NO</label>
             </div>
 
             <br>
 
-            <button class="w3-btn w3-pale-red w3-round RelleuBut"onclick="onAplyEdit()">Editar</button>
+            <button class="w3-btn w3-pale-red w3-round RelleuBut" type="submit">Editar</button>
 
             <br>
             <br>

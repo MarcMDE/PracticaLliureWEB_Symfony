@@ -213,6 +213,7 @@ class ShopController extends AbstractController
         $rep = $this
             ->getDoctrine()
             ->getRepository(Categories::class);
+        $categories = $rep->findAllNotEmpty();
 
         $cistellMostraArr = $this->session->get('cistellMostra', []);
         $preuTotal = $this->session->get('cistellPreu', 0);
@@ -223,7 +224,7 @@ class ShopController extends AbstractController
             array_push($cistellIndexArr, $text);
         }
 
-        $categories = $rep->findAllNotEmpty();
+
 
         /* $rep = $this
              ->getDoctrine()
