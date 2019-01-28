@@ -1,3 +1,5 @@
+
+/*
 function openCategory(evt, categoryName) {
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -9,6 +11,11 @@ function openCategory(evt, categoryName) {
     }
     // Show the current tab, and add an "active" class to the button that opened the tab
     evt.currentTarget.className += " active";
+}
+*/
+
+function openCategory(path) {
+    window.location = path;
 }
 
 function onBag()
